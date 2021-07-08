@@ -1,9 +1,11 @@
-import ApiService from './services/api-services';
+import ApiService from '../services/api-services';
 import debounce from 'lodash.debounce';
-// import eventsListTpl from './tpl/???.handlebars';
+import eventsListTpl from './tpl/card.hds';
 
 // const eventsGalleryRef = document.querySelect(".");
 const searchInputRef = document.querySelector('.search-input');
+
+//вешаем событие ввода в строку input
 searchInputRef.addEventListener('input', debounce(onInputSearch, 500));
 
 const newApi = new ApiService();

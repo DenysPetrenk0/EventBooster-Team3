@@ -1,6 +1,6 @@
 import './sass/main.scss';
 
-import inputSearchKeyword from './searh-by-keyword';
+import inputSearchKeyword from './js/searh-by-keyword';
 
 setTimeout(function () {
   console.log(inputSearchKeyword);
