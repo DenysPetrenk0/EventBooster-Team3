@@ -2,7 +2,7 @@ import ApiService from '../services/api-services';
 import debounce from 'lodash.debounce';
 import eventsListTpl from '../tpl/cards.hbs';
 
-// const eventsGalleryRef = document.querySelect('.');
+const eventsGalleryRef = document.querySelect('.cards__list');
 const searchInputRef = document.querySelector('.form-field');
 
 //вешаем событие ввода в строку input
@@ -22,16 +22,15 @@ function onInputSearch(e) {
 
   newApi.fetchEvent(inputSearchKeyword, countryCode, size).then(data => {
     renderGallery(data);
-    console.log(data);
-    console.log(data.page.totalPages);
-    console.log(data._embedded.events);
-    // renderGallery();
+    // console.log(data);
+    // console.log(data.page.totalPages);
+    // console.log(data._embedded.events);
   });
   console.log(inputSearchKeyword);
 }
 
 function renderGallery({ event }) {
-  // eventsGalleryRef.innerHTML = eventsListTpl(event);
+  eventsGalleryRef.innerHTML = eventsListTpl(event);
 }
 
 export default inputSearchKeyword;
