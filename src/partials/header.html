@@ -28,24 +28,14 @@
           <svg class="search-svg icon-close-search" width="12" height="12">
             <use href=""></use>
           </svg>
-        </label>
-
-        <label class="label-search-form">
-          <input
-            class="form-field choose-country  "
-            list="choose country"
-            name="fav"
-            id="fav"
-            placeholder="Choose country"
-          />
-
-          <!-- <svg class="search-svg" width="15" height="10">
-            <use href=""></use>
-          </svg> -->
-          <datalist id="choose country"></datalist>
-        </label>
+        <div id="dropdown" class="dropdown" data-dropdown>
+          <div id="dropdown__title" class="dropdown__title" data-country-id="default">Choose country ></div>
+              <ul class="dropdown__list visually-hidden"></ul>
+        </div>
         </form>
       </form>
+
+      
 
 
 
