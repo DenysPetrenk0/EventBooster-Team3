@@ -1,65 +1,63 @@
 .search-form {
-    width: 270px;
-    height: 105px;
-    font-family: sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1, 2188;
-    letter-spacing: 0em;
-    text-align: left;
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-content: space-between;
-  
-    @media screen and (min-width: 768px) {
-      width: 570px;
-      height: 40px;
-      justify-content: space-between;
-    }
-  
-    @media screen and (min-width: 1280px) {
-      // width: 570px;
-      // justify-content: space-between;
-    }
-  }
-  
-  .form-field {
-    height: 40px;
-    width: 270px;
-    color: white;
-    border-radius: 25px;
-    border: none;
-    outline-color: #939393;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    @media screen and (max-width: $tablet - 1) {
-      margin-bottom: 25px;
-    }
-  
-    @media screen and (min-width: 1280px) {
-    }
-  }
- 
-  .label-search-form {
-    position: relative;
-  }
-  
-  .search-svg {
-    fill: 939393;
-    position: absolute;
-    left: 228px;
-    top: 15px;
-    pointer-events: none;
-    transition: 300ms;
-  }
- 
- .choose-country{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  // appearance: none; 
- }
+  width: 270px;
+  height: 105px;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1, 2188;
+  letter-spacing: 0em;
+  text-align: left;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-content: space-between;
 
-  
+  @media screen and (min-width: 768px) {
+    width: 570px;
+    height: 40px;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 1280px) {
+    // width: 570px;
+    // justify-content: space-between;
+  }
+}
+
+.form-field {
+  height: 40px;
+  width: 270px;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  outline-color: #939393;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  @media screen and (max-width: $tablet - 1) {
+    margin-bottom: 25px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.label-search-form {
+  position: relative;
+}
+
+.search-svg {
+  fill: 939393;
+  position: absolute;
+  left: 228px;
+  top: 15px;
+  pointer-events: none;
+  transition: 300ms;
+}
+
+//  .choose-country{
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   // appearance: none;
+//  }
