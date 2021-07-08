@@ -4,7 +4,8 @@ export default class ApiService {
     this.BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json?';
     this.page = 1;
   }
-  fetchImg(searchImg) {
+
+  fetchEvent(searchEvent) {
     const url = `${this.BASE_URL}&apikey=${this.API_KEY}`;
     return fetch(url).then(response => {
       if (response.ok) {
