@@ -1,5 +1,7 @@
 import './sass/main.scss';
 
-import newApi from './searh-by-keyword';
+import inputSearchKeyword from './searh-by-keyword';
 
-console.log(newApi);
+setTimeout(function () {
+  console.log(inputSearchKeyword);
+}, 3000);

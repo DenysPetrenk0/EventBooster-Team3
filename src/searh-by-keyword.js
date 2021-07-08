@@ -11,14 +11,25 @@ let inputSearchKeyword;
 
 function onInputSearch(e) {
   inputSearchKeyword = e.target.value;
-  newApi.fetchEvent(inputSearchKeyword).then(data => {
+  let size = 20;
+  let countryCode = '';
+  const windowOuterWidth = window.outerWidth;
+
+  //для планшета меняем количество подгружаемых в запросе событий на 21.
+  if (windowOuterWidth > 768 && windowOuterWidth < 1280) size = 21;
+
+  newApi.fetchEvent(inputSearchKeyword, countryCode, size).then(data => {
     console.log(data);
     console.log(data.page.totalPages);
     console.log(data._embedded.events);
     // renderGallery();
   });
+  console.log(inputSearchKeyword);
 }
 
 // function renderGallery({ event }) {
 // eventsGalleryRef.innerHTML = eventsListTpl(event);
 // }
+// console.log(inputSearchKeyword);
+
+export default inputSearchKeyword;

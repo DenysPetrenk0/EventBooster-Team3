@@ -5,7 +5,7 @@ export default class ApiService {
     this.page = 1;
   }
 
-  fetchEvent(keyword = '', countryCode = '', size = 20) {
+  fetchEvent(keyword = '', countryCode = '', size) {
     const url = `${this.BASE_URL}keyword=${keyword}&countryCode=${countryCode}&size=${size}&apikey=${this.API_KEY}`;
     return fetch(url).then(response => {
       if (response.ok) {
