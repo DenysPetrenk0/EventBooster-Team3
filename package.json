@@ -19,10 +19,15 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "devDependencies": {
+    "handlebars-loader": "^1.7.1",
+    "lodash.debounce": "^4.0.8",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7"
   }
 }

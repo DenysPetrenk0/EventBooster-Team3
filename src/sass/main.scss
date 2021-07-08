@@ -1,1 +1,14 @@
-@import './header';
+@import './utils/variabeles';
+@import './utils/visually-hidden';
+@import './utils/mixin';
+
+@import './base/common';
+@import './base/container';
+
+@import './layout/header';
+@import './layout/footer';
+@import './layout/main-section';
+
+@import './components/logo';
+@import './components/button';
+@import './components/backdrop';
