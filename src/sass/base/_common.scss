@@ -1,5 +1,18 @@
 body {
+  position: relative;
   font-family: Montserrat, sans-serif;
+  background-color: $secondary-text-color;
+  background-image: url('../images/main-background/bg-body.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: 1.21em;
+  @media screen and (min-width: 768px) {
+    background-image: url('../images/main-background/bg-body.png');
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url('../images/main-background/bg-body.png');
+  }
 }
 
 h1,
