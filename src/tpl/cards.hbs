@@ -1,0 +1,13 @@
+{{#each this}}
+  <li class='card'>
+    <img src={{images}} alt='event image' />
+    <h2 class='card__title'>{{name}}</h2>
+    <p class='card__date'>{{dates.start}}</p>
+    <p class='card__location'>
+      <svg class='card__location-icon'>
+        <use href=''></use>
+        {{location}}
+      </svg>
+    </p>
+  </li>
+{{/each}}

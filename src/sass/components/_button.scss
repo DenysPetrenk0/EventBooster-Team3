@@ -1,0 +1,77 @@
+// body {
+//   background-color: black;
+// }
+ul {
+  margin: 0;
+  padding: 0;
+}
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 270px;
+  height: 40px;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+
+  cursor: pointer;
+  z-index: 2;
+}
+
+.dropdown__title {
+  padding: 0px 30px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #939393;
+  pointer-events: none;
+}
+
+.dropdown__list {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  height: 300px;
+  transition: height 250ms linear;
+
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    width: 8px; /* width of the entire scrollbar */
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-track-piece:vertical {
+    margin-top: 14px;
+    margin-bottom: 14px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #dc56c5; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 1px solid black; /* creates padding around scroll thumb */
+  }
+
+  padding-top: 45px;
+  padding-left: 30px;
+
+  background-color: inherit;
+  width: inherit;
+  border-radius: 20px;
+
+  color: white;
+  z-index: 1;
+
+  &.visually-hidden {
+    height: 0;
+  }
+}

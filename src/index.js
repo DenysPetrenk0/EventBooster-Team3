@@ -1,7 +1,4 @@
 import './sass/main.scss';
+import cardsGallery from './tpl/cards.hbs';
+import './js/dropdown.js';
 
-import inputSearchKeyword from './js/searh-by-keyword';
-
-setTimeout(function () {
-  console.log(inputSearchKeyword);
-}, 3000);
