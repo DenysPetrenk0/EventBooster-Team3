@@ -29,6 +29,30 @@
     margin-top: 63px;
     flex-basis: calc((100% - 280px) / 4);
   }
+
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    color: #dc56c5;
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  &__location {
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  &__location-icon {
+    fill: #ffffff;
+  }
 }
 img {
   max-width: 100%;

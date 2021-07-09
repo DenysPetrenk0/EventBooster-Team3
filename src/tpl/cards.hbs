@@ -2,12 +2,12 @@
   <li class='card' data-index={{id}}>
     <img src='{{images.0.url}}' alt='event image' />
     <h2 class='card__title'>{{name}}</h2>
-    <p class='card__date'>{{dates.start}}</p>
+    <p class='card__date'>{{dates.start.localDate}}</p>
     <p class='card__location'>
       <svg class='card__location-icon' width='7' height='10'>
-        <use href=''></use>
-        {{location}}
+        <use href='../images/svg/search.svg#icon-search'></use>
       </svg>
+      {{location}}
     </p>
   </li>
 {{/each}}
