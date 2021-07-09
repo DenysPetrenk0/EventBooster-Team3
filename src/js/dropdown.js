@@ -2,14 +2,18 @@ import countryList from './countries-code.js';
 import dropdownTpl from '../tpl/dropdown.hbs';
 import ApiService from '../services/api-services';
 import eventsListTpl from '../tpl/cards.hbs';
+import debounce from 'lodash.debounce';
 
 const apiService = new ApiService();
 const countryListRef = document.querySelector('.dropdown__list');
 const dropdownTitleRef = document.querySelector('.dropdown__title');
 const dropdownRef = document.querySelector('.dropdown');
 const eventCardsRef = document.querySelector('.cards__list');
+const eventsGalleryRef = document.querySelector('.cards__list');
+const searchInputRef = document.querySelector('.form-field');
 
 document.addEventListener('click', onClickDropdown);
+searchInputRef.addEventListener('input', debounce(onInputSearch, 500));
 
 function onClickDropdown(e) {
   if (
@@ -38,13 +42,25 @@ function onClickDropdown(e) {
 
   if (e.target.getAttributeNames().includes('data-country-id')) {
     apiService.countryCode = dropdownTitleRef.getAttribute('data-country-id');
-    apiService.keyword = '';
 
     apiService
       .fetchEvent()
       .then(data => renderGallery(data))
       .catch(console.log);
   }
+}
+
+function onInputSearch(e) {
+  apiService.keyword = e.target.value;
+  const windowOuterWidth = window.outerWidth;
+
+  //для планшета меняем количество подгружаемых в запросе событий на 21.
+  if (windowOuterWidth > 768 && windowOuterWidth < 1280) apiService.size = 21;
+
+  apiService
+    .fetchEvent()
+    .then(data => renderGallery(data))
+    .catch(console.log);
 }
 
 function renderGallery(data) {

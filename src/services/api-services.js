@@ -4,8 +4,8 @@ export default class ApiService {
     this.BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
     this.page = 1;
 
-    this._keyword;
-    this._countryCode;
+    this._keyword = '';
+    this._countryCode = '';
     this._size = 20;
   }
 
