@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
   .logo {
     position: absolute;
   
@@ -48,3 +49,92 @@
 
     }
   }
+=======
+.header {
+  position: relative;
+  @media screen and (min-width: 1280px){
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+#logo-link {
+  display: block;
+  width: 110px;
+  height: 90px;
+  position: absolute;
+  z-index: 50;
+
+  backdrop-filter: blur(30px);
+  border-bottom-right-radius: 210%;
+
+  border: 1px solid rgba(255, 13, 190, 0.44);
+  border-left: none;
+  border-top: none;
+  z-index: 1065;
+
+  @media screen and (min-width: 768px) {
+    width: 160px;
+    height: 110px;
+  }
+
+  @media screen and (min-width: 1280px){
+    width: 180px;
+    height: 130px;
+    left: auto;
+  }
+}
+
+#txtContainer {
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 110px;
+  height: 90px;
+  @media screen and (min-width: 768px) {
+    width: 160px;
+    height: 110px;
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 180px;
+    height: 130px;
+    padding-left: 3px;
+  }
+}
+
+.txt {
+  position: absolute;
+  font-family: Major Mono Display;
+  font-size: 16px;
+  letter-spacing: 0.25em;
+  color: #ff0dbf;
+
+  @media screen and (min-width: 768px){
+    font-size: 22px;
+  }
+
+  @media screen and (min-width: 1280px){
+    font-size: 28px;
+  }
+}
+
+.txt2 {
+  margin-top: 15px;
+  position: absolute;
+  font-family: Major Mono Display;
+  font-size: 16px;
+  color: #ff0dbf;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 25px;
+    font-size: 22px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+  }
+}
+>>>>>>> Stashed changes
