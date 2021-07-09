@@ -3,16 +3,22 @@ export default class ApiService {
     this.API_KEY = 'R6T2f5StA43ZJAlAODPBSAJJjoAoGQks';
     this.BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
     this.page = 1;
+    this.countryCode = '';
+    this.keyword = '';
+    this.size = 0;
   }
 
   fetchEvent(keyword = '', countryCode = '', size) {
     const url = `${this.BASE_URL}.json?keyword=${keyword}&countryCode=${countryCode}&size=${size}&apikey=${this.API_KEY}`;
-    return fetch(url).then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject('Opps! Something went wrong');
-    });
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        if (data.page.totalElements === 0) {
+          return Promise.reject('Opps! Something went wrong');
+        } else {
+          return data;
+        }
+      });
   }
 
   fetchEventById(id) {

@@ -41,21 +41,37 @@ function onClickDropdown(e) {
     const size = '20';
     const countryCode = dropdownTitleRef.getAttribute('data-country-id');
 
-    apiService.fetchEvent(inputSearchKeyword, countryCode, size).then(data => {
-      renderGallery(data._embedded.events);
-    });
+    apiService
+      .fetchEvent(inputSearchKeyword, countryCode, size)
+      .then(data => renderGallery(data))
+      .catch(console.log);
   }
 }
 
-// function renderGallery(events) {
+function renderGallery(data) {
+  const events = data._embedded.events;
+  // console.log(events);
+  eventCardsRef.innerHTML = eventsListTpl(events);
+  // findPictures(events);
+}
+
+// function findPictures(events) {
 //   console.log(events);
-
-//   createResultObj(events);
-//   // eventCardsRef.innerHTML = eventsListTpl(event);
-// }
-
-// function createResultObj(events);  {
-//   return  {
-//      eventName:
+//   const picsArr = [];
+//   for (let event of events) {
+//     for (let e of event.images) {
+//       if (e.width === 640 && e.height === 427) {
+//         picsArr.push(e);
+//       }
+//     }
 //   }
+//   const picsRef = document.querySelectorAll('.pics');
+
+//   picsRef.forEach(pic => {
+//     for (let i = 0; i < picsArr.length; i++) {
+//       console.log(picsArr[i]);
+//       pic.setAttribute(src, picsArr[i].url);
+//     }
+//     return;
+//   });
 // }
