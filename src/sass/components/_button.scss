@@ -12,13 +12,18 @@ ul {
   align-content: center;
   width: 270px;
   height: 40px;
-
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   border-radius: 20px;
-
   cursor: pointer;
   z-index: 2;
+
+  @media screen and (max-width: 768px) {
+   margin-left: 0px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 30px;
+   }
 }
 
 .dropdown__title {
