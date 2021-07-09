@@ -22,14 +22,14 @@ function onInputSearch(e) {
 
   newApi.fetchEvent(inputSearchKeyword, countryCode, size).then(data => {
     renderGallery(data._embedded.events);
-    console.log(data);
-    console.log(data.page.totalPages);
+    // console.log(data);
+    // console.log(data.page.totalPages);
     console.log(data._embedded.events);
   });
-  console.log(inputSearchKeyword);
 }
 
-function renderGallery({ event }) {
+function renderGallery(event) {
+  console.log(event);
   eventsGalleryRef.innerHTML = eventsListTpl(event);
 }
 
