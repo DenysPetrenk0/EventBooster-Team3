@@ -38,6 +38,7 @@
     font-size: 16px;
     text-align: center;
     color: #dc56c5;
+    margin-bottom: 5px;
   }
 
   &__date {
@@ -45,6 +46,7 @@
     font-size: 16px;
     text-align: center;
     color: #ffffff;
+    margin-bottom: 5px;
   }
 
   &__location {
@@ -59,6 +61,18 @@
 }
 img {
   max-width: 100%;
-  height: auto;
+  // height: auto;
   display: inline-block;
+  border-radius: 50px 0px;
+  height: 161px;
+  margin-bottom: 5px;
+
+  @media screen and (min-width: 768px) {
+    height: 227px;
+  }
 }
+
+// .img_card {
+//   background-image: url(../images/cards/rectangle.png);
+//   background-position: left top;
+// }
