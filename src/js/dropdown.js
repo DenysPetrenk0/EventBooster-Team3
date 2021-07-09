@@ -37,25 +37,21 @@ function onClickDropdown(e) {
   }
 
   if (e.target.getAttributeNames().includes('data-country-id')) {
-    const inputSearchKeyword = '';
-    const size = '20';
-    const countryCode = dropdownTitleRef.getAttribute('data-country-id');
+    apiService.countryCode = dropdownTitleRef.getAttribute('data-country-id');
+    apiService.keyword = '';
 
-    apiService.fetchEvent(inputSearchKeyword, countryCode, size).then(data => {
-      renderGallery(data._embedded.events);
-    });
+    apiService
+      .fetchEvent()
+      .then(data => renderGallery(data))
+      .catch(console.log);
   }
 }
 
-// function renderGallery(events) {
-//   console.log(events);
-
-//   createResultObj(events);
-//   // eventCardsRef.innerHTML = eventsListTpl(event);
-// }
-
-// function createResultObj(events);  {
-//   return  {
-//      eventName:
-//   }
-// }
+function renderGallery(data) {
+  const events = data._embedded.events.map(evt => ({
+    ...evt,
+    imgUrl: evt.images.find(img => img.width === 640 && img.height === 427),
+    locationRef: evt._embedded.venues[0].name,
+  }));
+  eventCardsRef.innerHTML = eventsListTpl(events);
+}
