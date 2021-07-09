@@ -1,34 +1,32 @@
-.cards {
+.cards__list {
   display: flex;
   flex-wrap: wrap;
-
-  &__list {
-    margin-left: -15px;
-    margin-top: -100px;
-    @media screen and (min-width: 768px) {
-      margin-left: -25px;
-      margin-top: -130px;
-    }
-    @media screen and (min-width: 1280px) {
-      margin-left: -70px;
-      margin-top: -140px;
-    }
+  margin-left: -14px;
+  margin-top: -42px;
+  @media screen and (min-width: 768px) {
+    margin-left: -28px;
+    margin-top: -58px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: -70px;
+    margin-top: -63px;
   }
 }
+
 .card {
   display: block;
   // text-align: center;
-  margin-left: 15px;
-  margin-top: 100px;
-  flex-basis: calc((100% - 30px) / 2);
+  margin-left: 14px;
+  margin-top: 42px;
+  flex-basis: calc((100% - 28px) / 2);
   @media screen and (min-width: 768px) {
-    margin-left: 25px;
-    margin-top: 130px;
-    flex-basis: calc((100% - 75px) / 3);
+    margin-left: 28px;
+    margin-top: 58px;
+    flex-basis: calc((100% - 84px) / 3);
   }
   @media screen and (min-width: 1280px) {
     margin-left: 70px;
-    margin-top: 140px;
+    margin-top: 63px;
     flex-basis: calc((100% - 280px) / 4);
   }
 }
