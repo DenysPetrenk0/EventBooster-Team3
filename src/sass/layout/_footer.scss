@@ -1,0 +1,61 @@
+// @import url(https://fonts.googleapis.com/css?family=Akronim);
+@import  url('https://fonts.googleapis.com/css2?family=Tourney&display=swap');
+
+footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-wrapper {
+  position: absolute;
+  bottom: 0;
+
+  flex-direction: column;
+  text-align: center;
+
+  font-size: 14px;
+  line-height: 17px;
+
+  color: $additional-text-color;
+
+  &__content {
+    display: flex;
+    padding: 20px 10px;
+
+    @media screen and (min-width: 320px)  {
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: 18px;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+
+
+.Blazing {
+  font-family: 'Tourney', cursive;;
+  font-size: 25px;
+
+  vertical-align: middle;
+  outline: none;
+  color: rgb(255, 0, 149);
+
+  text-shadow: 0 3px 20px rgb(255, 0, 191), 0 0 20px rgb(255, 4, 213), 0 0 10px rgb(255, 0, 76),
+    4px -5px 6px rgb(180, 118, 159), -4px -10px 10px rgb(255, 0, 98), 0 -10px 30px rgb(255, 0, 128);
+  animation: 2s Blazing infinite alternate linear;
+}
+
+
+
