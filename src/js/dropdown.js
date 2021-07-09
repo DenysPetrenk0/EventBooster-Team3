@@ -49,29 +49,10 @@ function onClickDropdown(e) {
 }
 
 function renderGallery(data) {
-  const events = data._embedded.events;
-  // console.log(events);
+  const events = data._embedded.events.map(evt => ({
+    ...evt,
+    imgUrl: evt.images.find(img => img.width === 640 && img.height === 427),
+    locationRef: evt._embedded.venues[0].name,
+  }));
   eventCardsRef.innerHTML = eventsListTpl(events);
-  // findPictures(events);
 }
-
-// function findPictures(events) {
-//   console.log(events);
-//   const picsArr = [];
-//   for (let event of events) {
-//     for (let e of event.images) {
-//       if (e.width === 640 && e.height === 427) {
-//         picsArr.push(e);
-//       }
-//     }
-//   }
-//   const picsRef = document.querySelectorAll('.pics');
-
-//   picsRef.forEach(pic => {
-//     for (let i = 0; i < picsArr.length; i++) {
-//       console.log(picsArr[i]);
-//       pic.setAttribute(src, picsArr[i].url);
-//     }
-//     return;
-//   });
-// }
