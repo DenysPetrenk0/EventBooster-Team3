@@ -3,13 +3,16 @@
   flex-wrap: wrap;
   margin-left: -14px;
   margin-top: -42px;
+  padding-bottom: 150px;
   @media screen and (min-width: 768px) {
     margin-left: -28px;
     margin-top: -58px;
+   
   }
   @media screen and (min-width: 1280px) {
     margin-left: -70px;
     margin-top: -63px;
+    padding-bottom: 190px;
   }
 }
 
@@ -28,6 +31,30 @@
     margin-left: 70px;
     margin-top: 63px;
     flex-basis: calc((100% - 280px) / 4);
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    color: #dc56c5;
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  &__location {
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  &__location-icon {
+    fill: #ffffff;
   }
 }
 img {
