@@ -1,6 +1,12 @@
+.forms {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .search-form {
-  width: 270px;
-  height: 105px;
+  max-width: 270px;
+
   font-family: sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -13,14 +19,7 @@
   align-content: space-between;
 
   @media screen and (min-width: 768px) {
-    width: 570px;
-    height: 40px;
-    justify-content: space-between;
-  }
-
-  @media screen and (min-width: 1280px) {
-    // width: 570px;
-    // justify-content: space-between;
+    margin-right: 30px;
   }
 }
 
@@ -37,9 +36,6 @@
   backdrop-filter: blur(20px);
   @media screen and (max-width: $tablet - 1) {
     margin-bottom: 25px;
-  }
-
-  @media screen and (min-width: 1280px) {
   }
 }
 

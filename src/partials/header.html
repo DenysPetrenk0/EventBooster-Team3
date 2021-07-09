@@ -1,19 +1,15 @@
 <div class="img-container">
-    <section class="wrapper-hero container">
-      <h1 class="hero-title">
-        <b
-          >F<span>I</span>ND<span> BEST</span> <span>EV</span>EN<span
-            >TS</span
-          >
-          <span>AR</span>OU<span>ND </span>THE <span>WO</span>R<span
-            >LD</span
-          ></b
-        >
-      </h1>
-  
-<!-- FORMS -->
+  <section class="wrapper-hero container">
+    <h1 class="hero-title">
+      <b
+        >F<span>I</span>ND<span> BEST</span> <span>EV</span>EN<span>TS</span> <span>AR</span>OU<span
+          >ND </span
+        >THE <span>WO</span>R<span>LD</span></b
+      >
+    </h1>
 
-
+    <!-- FORMS -->
+    <div class="forms">
       <form class="search-form" name="signup_form">
         <label class="label-search-form">
           <input
@@ -23,21 +19,21 @@
             placeholder="Start searching"
           />
           <svg class="search-svg search" width="12" height="12">
-            <use href="./images/svg/search.svg#search></use>
+            <use href="./images/svg/search.svg#search"></use>
           </svg>
           <svg class="search-svg icon-close-search" width="12" height="12">
             <use href=""></use>
           </svg>
-        <div id="dropdown" class="dropdown" data-dropdown>
-          <div id="dropdown__title" class="dropdown__title" data-country-id="default">Choose country ></div>
-              <ul class="dropdown__list visually-hidden"></ul>
-        </div>
-        </form>
+        </label>
       </form>
-
-      
-
-
-
-    </section>
-  </div>
+      <div class="countries-dropdown__wrapper">
+        <div id="dropdown" class="dropdown" data-dropdown>
+          <span id="dropdown__title" class="dropdown__title" data-country-id="default">
+            Choose country >
+          </span>
+        </div>
+        <ul class="dropdown__list visually-hidden"></ul>
+      </div>
+    </div>
+  </section>
+</div>
