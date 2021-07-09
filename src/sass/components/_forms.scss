@@ -36,24 +36,24 @@
   backdrop-filter: blur(20px);
   @media screen and (max-width: $tablet - 1) {
     margin-bottom: 25px;
+  
   }
+
 }
 
 .label-search-form {
   position: relative;
+
+  @media screen and (min-width: 768px) {
+  display: flex;
+  align-content: space-between;
+
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  align-content: space-between;
+ 
+  }
 }
 
-.search-svg {
-  fill: 939393;
-  position: absolute;
-  left: 228px;
-  top: 15px;
-  pointer-events: none;
-  transition: 300ms;
-}
 
-//  .choose-country{
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   // appearance: none;
-//  }
