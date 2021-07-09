@@ -37,12 +37,11 @@ function onClickDropdown(e) {
   }
 
   if (e.target.getAttributeNames().includes('data-country-id')) {
-    const inputSearchKeyword = '';
-    const size = '20';
-    const countryCode = dropdownTitleRef.getAttribute('data-country-id');
+    apiService.countryCode = dropdownTitleRef.getAttribute('data-country-id');
+    apiService.keyword = '';
 
     apiService
-      .fetchEvent(inputSearchKeyword, countryCode, size)
+      .fetchEvent()
       .then(data => renderGallery(data))
       .catch(console.log);
   }
