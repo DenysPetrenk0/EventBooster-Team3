@@ -1,13 +1,13 @@
 {{#each this}}
   <li class='card' data-index={{id}}>
-    <img src='{{images.0.url}}' alt='event image' />
+    <img src='{{images.4.url}}' alt='event image' class="img_card"/>
     <h2 class='card__title'>{{name}}</h2>
     <p class='card__date'>{{dates.start.localDate}}</p>
     <p class='card__location'>
       <svg class='card__location-icon' width='7' height='10'>
         <use href='../images/svg/search.svg#icon-search'></use>
-      </svg>
-      {{location}}
+      </svg>test
+      {{lacation}}
     </p>
   </li>
 {{/each}}
