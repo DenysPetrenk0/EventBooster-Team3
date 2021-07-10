@@ -76,5 +76,6 @@ function renderGallery(data) {
     imgUrl: evt.images.find(img => img.width === 640 && img.height === 427),
     locationRef: evt._embedded.venues[0].name,
   }));
+  console.log(events);
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
 }
