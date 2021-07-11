@@ -66,6 +66,7 @@ img {
   border-radius: 50px 0px;
   height: 161px;
   margin-bottom: 5px;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     height: 227px;
