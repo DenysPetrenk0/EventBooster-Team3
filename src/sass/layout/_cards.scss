@@ -18,14 +18,30 @@
 .card {
   position: relative;
   display: block;
-  // text-align: center;
   margin-left: 14px;
   margin-top: 42px;
   flex-basis: calc((100% - 28px) / 2);
+
+  &::before {
+    content: url('./../images/cards/Rect-smoll.svg');
+    position: absolute;
+    z-index: 10;
+    width: 108px;
+    height: 101px;
+    top: -9px;
+    right: -10px;
+  }
   @media screen and (min-width: 768px) {
     margin-left: 28px;
     margin-top: 58px;
     flex-basis: calc((100% - 84px) / 3);
+    &::before {
+      content: url('./../images/cards/Rect.svg');
+      width: 153px;
+      height: 143px;
+      top: -13px;
+      right: -14px;
+    }
   }
   @media screen and (min-width: 1280px) {
     margin-left: 70px;
@@ -66,7 +82,6 @@
     font-weight: 600;
     font-size: 14px;
     color: #ffffff;
-
     -ms-text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
@@ -81,12 +96,16 @@
     box-orient: vertical;
   }
 
-  &__location-icon {
-    fill: #ffffff;
+    &::before {
+      content: url('./../images/cards/Vector.svg');
+      width: 7px;
+      height: 10px;
+      margin-right: 3px;
+    }
   }
 }
 
-img {
+.pics {
   max-width: 100%;
   display: inline-block;
   border-radius: 50px 0px;
@@ -105,19 +124,25 @@ img {
   }
 }
 
+.cat_meta-box {
+  position: relative;
+  overflow: hidden;
+}
+
 @media screen and (min-width: 1280px) {
   .cat__meta {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(255, 254, 255, 0.9);
+    background-color: rgba(255, 254, 255, 0.8);
     border-radius: 50px 0px;
     width: 100%;
     height: 100%;
     transform: translateY(100%);
     opacity: 0;
-    transition: transform 250ms;
-    padding: 10px;
+    transition: transform 500ms;
+    padding: 20px;
+    border: 2px solid #dc56c5;
 
     .card:hover &,
     .card:focus & {
@@ -130,7 +155,7 @@ img {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 13px;
+    font-size: 10px;
     line-height: 1.25;
     text-align: center;
     color: #0e0e0e;
@@ -140,7 +165,7 @@ img {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.2;
     text-align: center;
     color: #dc56c5;
