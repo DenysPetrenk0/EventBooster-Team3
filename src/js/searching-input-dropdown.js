@@ -44,9 +44,10 @@ function onClickDropdown(e) {
     // Оперируем классом "visually-hidden" для скрытия списка стран по клику
     if (refs.countryListRef.classList.contains('visually-hidden')) {
       refs.countryListRef.classList.remove('visually-hidden');
+      refs.dropdownIconRef.classList.add('dropdown__svg--open');
     } else {
       refs.countryListRef.classList.add('visually-hidden');
-      refs.dropdownIconRef.classList.add('dropdown__svg--open');
+      refs.dropdownIconRef.classList.remove('dropdown__svg--open');
     }
   }
 
