@@ -47,9 +47,6 @@ function onClickDropdown(e) {
     } else {
       refs.countryListRef.classList.add('visually-hidden');
       refs.dropdownIconRef.classList.add('dropdown__svg--open');
-    } else {
-      refs.countryListRef.classList.add('visually-hidden');
-      refs.dropdownIconRef.classList.remove('dropdown__svg--open')
     }
   }
 
