@@ -25,7 +25,7 @@
   &::before {
     content: url('./../images/cards/Rect-smoll.svg');
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     width: 108px;
     height: 101px;
     top: -9px;
@@ -131,6 +131,7 @@
 @media screen and (min-width: 1280px) {
   .cat__meta {
     position: absolute;
+    z-index: 2;
     top: 0;
     left: 0;
     background-color: rgba(255, 254, 255, 0.8);
