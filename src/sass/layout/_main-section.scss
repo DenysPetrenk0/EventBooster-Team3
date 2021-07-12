@@ -5,11 +5,13 @@
   background-size: cover;
   text-align: center;
   @media screen and (min-width: 768px) {
-    background-image: url('../images/main-background/bg-body-tablet.png');
+    background-image: url('../images/main-background/decor.png'),
+      url('../images/main-background/bg-body-tablet.png');
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url('../images/main-background/bg-body.png');
+    background-image: url('../images/main-background/decor.png'),
+      url('../images/main-background/bg-body.png');
   }
 }
 // 0px - 767px 2x+
@@ -29,7 +31,9 @@
 }
 @media screen and (min-width: 768px) {
   .background {
-    background-image: url('../images/main-background/bg-body-tablet.png');
+    background-image: url('../images/main-background/decor.png'),
+      url('../images/main-background/bg-body-tablet.png'),
+      url('../images/main-background/decor.png');
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -39,18 +43,41 @@
   (min-resolution: 192dpi) and (min-width: 768px),
   (min-resolution: 2dppx) and (min-width: 768px) {
   .background {
-    background-image: url('../images/main-background/bg-body-tabl@2x.png');
+    background-image: url('../images/main-background/bg-body-tabl@2x.png'),
+      url('../images/main-background/decor.png');
   }
 }
 @media screen and (min-width: 1280px) {
   .background {
-    background-image: url('../images/main-background/bg-body.png');
+    background-image: url('../images/main-background/decor.png'),
+      url('../images/main-background/bg-body.png');
   }
 }
 @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
   (min-resolution: 192dpi) and (min-width: 1280px),
   (min-resolution: 2dppx) and (min-width: 1280px) {
   .background {
-    background-image: url('../images/main-background/bg-body@2x.png');
+    background-image: url('../images/main-background/bg-body@2x.png'),
+      url('../images/main-background/decor.png');
   }
 }
+// .decor {
+//   background-image: url('../images/main-background/decor.svg');
+
+//   background-size: cover;
+//   background-repeat: no-repeat;
+
+//   //   z-index: -10;
+// }
+// .decor-lines {
+//   position: relative;
+//   //   padding-left: 115px;
+//   //   padding-right: 115px;
+//   //   background-image: url('../images/main-background/decor.svg');
+//   //   background-repeat: no-repeat;
+//   //   background-size: cover;
+//   border-right: solid 1px #212121;
+//   border-left: solid 1px #212121;
+//   //   fill: #212121;
+
+// }
