@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "handlebars": "^4.7.7",
+    "tui-pagination": "^3.4.1",
     "webkit-npm": "^3.1.1"
   }
 }
