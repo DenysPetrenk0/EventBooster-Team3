@@ -17,16 +17,26 @@
           <svg class="search-svg search" width="12" height="12">
             <use href="./images/svg/search.svg#search"></use>
           </svg>
-          <svg class="search-svg icon-close-search" width="12" height="12">
-            <use href=""></use>
+          <svg class="search__svg">
+            <use class="search__icon" href="./images/svg/search.svg#search-icon" opacity="1"></use>
+          </svg>
+          <svg class="search__svg">
+            <use
+              class="clear-search__icon"
+              href="./images/svg/search.svg#clear-search"
+              opacity="0"
+            ></use>
           </svg>
         </label>
       </form>
       <div class="countries-dropdown__wrapper">
         <div id="dropdown" class="dropdown" data-dropdown>
           <span id="dropdown__title" class="dropdown__title" data-country-id="default">
-            Choose country >
-          </span>
+            Choose country</span
+          >
+          <svg class="dropdown__svg">
+            <use class="dropdown__icon" href="./images/svg/search.svg#country-search"></use>
+          </svg>
         </div>
         <ul class="dropdown__list visually-hidden"></ul>
       </div>

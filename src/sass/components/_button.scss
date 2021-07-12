@@ -14,7 +14,9 @@ ul {
 .dropdown {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
 
   align-content: center;
   width: 270px;
@@ -34,7 +36,6 @@ ul {
 }
 
 .dropdown__title {
-  padding: 0px 30px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -53,6 +54,7 @@ ul {
   transition: height 250ms linear;
 
   overflow-x: scroll;
+  z-index: 1;
 
   padding-top: 45px;
   padding-left: 5px;
@@ -104,4 +106,17 @@ ul {
   }
 
   border-radius: 20px;
+}
+
+.dropdown__svg {
+  width: 15px;
+  height: 10px;
+  pointer-events: none;
+
+  transform: rotate(0deg);
+  transition: transform 250ms linear;
+}
+
+.dropdown__svg--open {
+  transform: rotate(180deg);
 }
