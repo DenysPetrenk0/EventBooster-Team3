@@ -1,7 +1,7 @@
 import countryList from './countries-code.js';
 import dropdownTpl from '../tpl/dropdown.hbs';
 import eventsListTpl from '../tpl/cards.hbs';
-import ApiService from '../services/api-services';
+import apiService from '../services/api-services';
 import debounce from 'lodash.debounce';
 
 const refs = {
@@ -17,8 +17,6 @@ const refs = {
   searchIconRef: document.querySelector('.search__icon'),
   clearSearchIconRef: document.querySelector('.clear-search__icon'),
 };
-
-const apiService = new ApiService();
 
 document.addEventListener('DOMContentLoaded', onStartEventsLoad);
 // window.onload = onStartEventsLoad;
