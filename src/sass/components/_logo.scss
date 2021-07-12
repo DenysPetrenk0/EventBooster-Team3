@@ -1,0 +1,51 @@
+
+  .logo {
+    position: absolute;
+  
+    width: 106px;
+    height: 90px;
+    left: 3px;
+    top: 3px;
+  
+    @media screen and (min-width: 768px) {
+      width: 179px;
+      height: 151px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      width: 239px;
+      height: 201px;
+    }
+  }
+  .logo-background {
+    display: block;
+  
+    position: absolute;
+  
+    width: 213.97px;
+    height: 180px;
+    left: -107.49px;
+    top: -90px;
+    background-image: linear-gradient(
+      136.07deg,
+      rgba(196, 196, 196, 0.03) 10.75%,
+      rgba(196, 196, 196, 0) 92.33%
+    );
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 90%;
+  
+    @media screen and (min-width: 768px) {
+      width: 359px;
+      height: 302px;
+      left: -180px;
+      top: -151px;
+    }
+  
+    @media screen and (min-width: 1280px) {
+      width: 477px;
+      height: 402px;
+      left: -238px;
+      top: -201px;
+    }
+  }

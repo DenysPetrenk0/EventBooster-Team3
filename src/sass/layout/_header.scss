@@ -1,0 +1,43 @@
+.hero-title b {
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em rgb(255, 13, 191), 0 0 0.5em rgb(255, 13, 191),
+    0 0 0.1em rgb(255, 13, 191), 0 10px 3px #000;
+}
+.hero-title b span {
+  animation: blink linear infinite 2s;
+}
+.hero-title b span:nth-of-type(2) {
+  animation: blink linear infinite 3s;
+}
+@keyframes blink {
+  79% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  80% {
+    color: #333;
+  }
+  81% {
+    text-shadow: none;
+  }
+  82% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  83% {
+    color: #333;
+    text-shadow: none;
+  }
+  84% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  89% {
+    color: #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}

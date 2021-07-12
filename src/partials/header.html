@@ -1,1 +1,46 @@
-<h1>hello</h1>
+<div class="img-container">
+  <div class="logo-background"></div>
+  <a class="logo" href="./index.html">
+    <img src="./images/svg/logo.svg" alt="site logo" />
+  </a>
+  <section class="wrapper-hero container">
+    <h1 class="hero-title">
+      <b
+        >F<span>I</span>ND<span> BEST</span> <span>EV</span>EN<span>TS</span> <span>AR</span>OU<span
+          >ND </span
+        >THE <span>WO</span>R<span>LD</span></b
+      >
+    </h1>
+
+    <!-- FORMS -->
+    <div class="forms">
+      <form class="search-form" name="signup_form">
+        <label class="label-search-form">
+          <input
+            class="form-field symbol-close"
+            type="search"
+            name="search"
+            placeholder="Start searching"
+          />
+          <svg class="search-svg search" width="12" height="12">
+            <use href="./images/svg/search.svg#search"></use>
+          </svg>
+          <svg class="search-svg icon-close-search" width="12" height="12">
+            <use href=""></use>
+          </svg>
+        </label>
+      </form>
+      <div class="countries-dropdown__wrapper">
+        <div id="dropdown" class="dropdown" data-dropdown>
+          <span id="dropdown__title" class="dropdown__title" data-country-id="default">
+            Choose country</span
+          >
+          <svg class="dropdown__svg">
+            <use class="dropdown__icon" href="./images/svg/search.svg#country-search"></use>
+          </svg>
+        </div>
+        <ul class="dropdown__list visually-hidden"></ul>
+      </div>
+    </div>
+  </section>
+</div>

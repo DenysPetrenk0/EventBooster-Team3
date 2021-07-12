@@ -1,0 +1,116 @@
+// body {
+//   background-color: black;
+// }
+ul {
+  margin: 0;
+  padding: 0;
+}
+.countries-dropdown__wrapper {
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+
+  align-content: center;
+  width: 270px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+
+  z-index: 3;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+  }
+}
+
+.dropdown__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #939393;
+  pointer-events: none;
+}
+
+.dropdown__list {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  height: 300px;
+  transition: height 250ms linear;
+
+  overflow-x: scroll;
+
+  padding-top: 45px;
+  padding-left: 5px;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  width: 270px;
+  border-radius: 20px;
+
+  color: white;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: start;
+
+  &::-webkit-scrollbar {
+    width: 8px; /* width of the entire scrollbar */
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-track-piece:vertical {
+    margin-top: 34px;
+    margin-bottom: 14px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #dc56c5; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 1px solid black; /* creates padding around scroll thumb */
+  }
+
+  &.visually-hidden {
+    height: 0;
+  }
+}
+
+.dropdown__item {
+  padding-left: 25px;
+
+  &:hover,
+  &:focus {
+    background-color: #dc56c5;
+  }
+
+  border-radius: 20px;
+}
+
+.dropdown__svg {
+  width: 15px;
+  height: 10px;
+  pointer-events: none;
+
+  // transform: rotate(-90deg);
+}
