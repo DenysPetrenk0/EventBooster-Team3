@@ -54,6 +54,7 @@ ul {
   transition: height 250ms linear;
 
   overflow-x: scroll;
+  z-index: 1;
 
   padding-top: 45px;
   padding-left: 5px;
@@ -113,4 +114,10 @@ ul {
   pointer-events: none;
 
   // transform: rotate(-90deg);
+  transform: rotate(0deg);
+  transition: transform 250ms linear;
+}
+
+.dropdown__svg--open {
+  transform: rotate(180deg);
 }
