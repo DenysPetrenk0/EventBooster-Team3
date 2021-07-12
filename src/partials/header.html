@@ -3,11 +3,34 @@
   <a class="logo" href="./index.html">
     <img src="./images/svg/logo.svg" alt="site logo" />
   </a>
+
   <section class="wrapper-hero container">
     <h1 class="hero-title">
       <b>F<span>I</span>ND<span> BEST</span> <span>EV</span>EN<span>TS</span> <span>AR</span>OU<span>ND </span>THE
         <span>WO</span>R<span>LD</span></b>
     </h1>
+
+    <!-- LIGHT THEME SWITCH -->
+    <div class="theme-switch">
+      <svg class="theme-switch__icon" aria-label="Moon icon">
+        <use href="./images/svg/search.svg#moon"></use>
+      </svg>
+
+      <div class="theme-switch__control">
+        <input
+          class="theme-switch__toggle"
+          type="checkbox"
+          name="theme"
+          id="theme-switch-toggle"
+          aria-label="Theme switcher"
+        />
+        <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle"> </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+      <svg class="theme-switch__icon" role="img" aria-label="Sun icon">
+        <use href="./images/svg/search.svg#sun"></use>
+      </svg>
+    </div>
 
     <!-- FORMS -->
     <div class="forms">
