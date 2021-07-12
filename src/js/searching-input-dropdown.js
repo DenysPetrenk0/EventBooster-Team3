@@ -3,6 +3,7 @@ import dropdownTpl from '../tpl/dropdown.hbs';
 import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import debounce from 'lodash.debounce';
+import { showLoader, hideLoader } from './preloader';
 
 const refs = {
   countryListRef: document.querySelector('.dropdown__list'),
@@ -69,10 +70,13 @@ function onClickDropdown(e) {
 
     setEventsOnPage();
 
+    showLoader();
+
     apiService
       .fetchEvent()
       .then(data => renderGallery(data))
-      .catch(console.log);
+      .catch(console.log)
+      .finally(hideLoader);
   }
 }
 
@@ -91,12 +95,15 @@ function onInputSearch(e) {
 
   setEventsOnPage();
 
+  showLoader();
+
   apiService
     .fetchEvent()
     .then(data => {
       renderGallery(data);
     })
-    .catch(console.log);
+    .catch(console.log)
+    .finally(hideLoader);
 }
 
 //функция генерации галереи событий
