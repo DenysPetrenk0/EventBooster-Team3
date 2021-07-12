@@ -1,4 +1,4 @@
-export default class ApiService {
+class ApiService {
   constructor() {
     this.API_KEY = 'R6T2f5StA43ZJAlAODPBSAJJjoAoGQks';
     this.BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events';
@@ -63,3 +63,5 @@ export default class ApiService {
     this._page = value;
   }
 }
+
+export default new ApiService();

@@ -3,6 +3,7 @@
   <a class="logo" href="./index.html">
     <img src="./images/svg/logo.svg" alt="site logo" />
   </a>
+
   <section class="wrapper-hero container">
     <h1 class="hero-title">
       <b
@@ -11,6 +12,28 @@
         >THE <span>WO</span>R<span>LD</span></b
       >
     </h1>
+
+    <!-- LIGHT THEME SWITCH -->
+    <div class="theme-switch">
+      <svg class="theme-switch__icon" aria-label="Moon icon">
+        <use href="./images/svg/search.svg#moon"></use>
+      </svg>
+
+      <div class="theme-switch__control">
+        <input
+          class="theme-switch__toggle"
+          type="checkbox"
+          name="theme"
+          id="theme-switch-toggle"
+          aria-label="Theme switcher"
+        />
+        <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle"> </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+      <svg class="theme-switch__icon" role="img" aria-label="Sun icon">
+        <use href="./images/svg/search.svg#sun"></use>
+      </svg>
+    </div>
 
     <!-- FORMS -->
     <div class="forms">
@@ -22,9 +45,7 @@
             name="search"
             placeholder="Start searching"
           />
-          <svg class="search-svg search" width="12" height="12">
-            <use href="./images/svg/search.svg#search"></use>
-          </svg>
+
           <svg class="search__svg">
             <use class="search__icon" href="./images/svg/search.svg#search-icon" opacity="1"></use>
           </svg>
