@@ -3,76 +3,55 @@ import apiService from '../services/api-services.js';
 import '../js/searching-input-dropdown.js';
 
 const refs = {
-    jsGallery: document.querySelector(".cards__list"),
-    jsLightbox: document.querySelector(".js-lightbox"),
-    lightBox: document.querySelector(".lightbox"),
-    modalCloseBtn: document.querySelector(".lightbox__button"),
-    lighBoxOverlay: document.querySelector(".lightbox__overlay"),
+  jsGallery: document.querySelector('.cards__list'),
+  lightBox: document.querySelector('.lightbox'),
+
+  jsLightbox: document.querySelector('.js-lightbox'),
+  modalCloseBtn: document.querySelector('.lightbox__button'),
+  lighBoxOverlay: document.querySelector('.lightbox__overlay'),
 };
 
-
-
-let currentIndex = 0;
-
-
-
-//Слушатель событий(открытие модалки)__________________________________________________
-
-refs.jsGallery.addEventListener("click", (event) => {
-    // event.preventDefault();
-    if (event.target.classList.contains("cards__list")) return;
-    const targetId = event.target.closest('.card').dataset.index;
-    apiService.fetchEventById(targetId).then(data => { renderModal(data); console.log(data) }).catch();
-
-    console.log(targetId);
-
-    refs.lightBox.classList.add("is-open");
-
+//Слушатель событий(открытие модалки)_____________________
+refs.jsGallery.addEventListener('click', event => {
+  // event.preventDefault();
+  if (event.target.classList.contains('cards__list')) return;
+  const targetId = event.target.closest('.card').dataset.index;
+  apiService
+    .fetchEventById(targetId)
+    .then(data => renderModal(data))
+    .catch();
+  refs.lightBox.classList.add('is-open');
 });
 
-//Заполнение шаблонки_____________________________________
+//Заполнение шаблонки________________________________________________
 function renderModal(data) {
-    console.log(data);
-    console.log();
-    refs.lightBox.innerHTML = modaltpl(data);
+  const event = {
+    ...data,
+    authorName: data.name.split(' ').slice(0, 2).join(' '),
+    imgBigUrl: data.images.find(img => img.width === 1024 && img.height === 683),
+    imgSmallUrl: data.images.find(img => img.width === 305 && img.height === 225),
+  };
+  //   console.log(event);
+  refs.lightBox.innerHTML = modaltpl(event);
 }
-//Закрытие модалки(esc не доработан)________________________________________________________
 
-refs.lightBox.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("lightbox__button") || evt.target.classList.contains('lightbox__overlay')) {
-        closeLightBox(evt);
-    };
+//Закрытие модалки на крестик и за ее пределами_______________________
+refs.lightBox.addEventListener('click', evt => {
+  if (
+    evt.target.classList.contains('lightbox__button') ||
+    evt.target.classList.contains('lightbox__overlay')
+  ) {
+    closeLightBox(evt);
+  }
 });
 
-
-window.addEventListener("keydown", (event) => {
-    if (event.code === "Escape") {
-        closeLightBox(event);
-    }
+//Закрытие модалки по Escape ________________________________________
+window.addEventListener('keydown', evt => {
+  if (evt.code === 'Escape') {
+    closeLightBox(evt);
+  }
 });
-
-
 
 function closeLightBox(event) {
-    if (event.target.tagName === "BUTTON" || event.target.tagName === "DIV") {
-        refs.lightBox.classList.remove("is-open");
-    }
+  refs.lightBox.classList.remove('is-open');
 }
-
-
-//Лево-право,недоработано //
-
-function galleryScroll(event) {
-    if (event.code === "ArrowRight") {
-        if (currentIndex === galleryItems.length) {
-            currentIndex = 0;
-        }
-        currentIndex += 1;
-    } else if (event.code === "ArrowLeft") {
-        if (currentIndex === 0) {
-            currentIndex = galleryItems.length;
-        }
-        currentIndex -= 1;
-    }
-}
-

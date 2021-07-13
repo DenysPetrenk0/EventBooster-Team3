@@ -6,6 +6,7 @@ import setEventsOnPage from '../js/searching-input-dropdown';
 const refs = {
   eventCardsRef: document.querySelector('.cards__list'),
 };
+
 export default function setPagination(totalEvents) {
   const options = {
     totalItems: totalEvents > 1000 ? 1000 : totalEvents,

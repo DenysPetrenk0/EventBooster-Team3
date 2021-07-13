@@ -2,11 +2,11 @@
 <div class='lightbox__content'>
   <button type='button' class='lightbox__button' data-action='close-lightbox'></button>
   <div class='svg-container'>
-    <img class='modal-svg' src='{{images.9.url}}' alt='{{name}}' />
+    <img class='modal-svg' src='{{imgSmallUrl.url}}' alt='{{name}}' />
   </div>
   <div class='modal-section'>
     <picture class='modal-img-section'>
-      <img class='modal-img' src='{{images.0.url}}' alt='{{name}}' />
+      <img class='modal-img' src='{{imgBigUrl.url}}' alt='{{name}}' />
     </picture>
     <div class='modal-container-info'>
       <div class='modal-container'>
@@ -25,7 +25,7 @@
       </div>
       <div class='modal-container'>
         <h3 class='modal-header'>WHO</h3>
-        <p class='modal-text'>{{name}}</p>
+        <p class='modal-text' data-author='{{authorName}}'>{{name}}</p>
       </div>
       <div class='modal-container'>
         <h3 class='modal-header'>PRICE</h3>

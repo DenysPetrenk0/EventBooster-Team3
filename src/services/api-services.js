@@ -12,12 +12,12 @@ class ApiService {
   //запрос для поиска по полю input и dropdown на главной странице
   fetchEvent() {
     const url = `${this.BASE_URL}.json?keyword=${this._keyword}&countryCode=${this._countryCode}&size=${this._size}&page=${this._page}&apikey=${this.API_KEY}`;
-    console.log(url);
+    // console.log(url);
 
     return fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         if (data.page.totalElements === 0) {
           return Promise.reject('Opps! Something went wrong');
         } else {
