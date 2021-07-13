@@ -1,6 +1,8 @@
 import modaltpl from '../tpl/modal.hbs';
 import apiService from '../services/api-services.js';
 import { renderGallery, setEventsOnPage } from './searching-input-dropdown';
+import setPagination from './pagination';
+
 import '../js/searching-input-dropdown.js';
 
 const refs = {
@@ -32,7 +34,6 @@ function renderModal(data) {
     imgBigUrl: data.images.find(img => img.width === 1024 && img.height === 683),
     imgSmallUrl: data.images.find(img => img.width === 305 && img.height === 225),
   };
-  //   console.log(event);
   refs.lightBox.innerHTML = modaltpl(event);
 }
 
@@ -48,7 +49,13 @@ refs.lightBox.addEventListener('click', evt => {
   if (evt.target.classList.contains('modal-btn-more')) {
     apiService.keyword = evt.target.dataset.author;
     setEventsOnPage();
-    apiService.fetchEvent().then(renderGallery).catch(console.log);
+    apiService
+      .fetchEvent()
+      .then(data => {
+        renderGallery(data);
+        setPagination(data.page.totalElements);
+      })
+      .catch(console.log);
     closeLightBox(evt);
   }
 });
