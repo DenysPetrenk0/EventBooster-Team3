@@ -104,7 +104,7 @@ function onInputSearch(e) {
 function renderGallery(data) {
   const events = data._embedded.events.map(evt => ({
     ...evt,
-    imgUrl: evt.images.find(img => img.width === 640 && img.height === 427),
+    imgUrl: evt.images.find(img => img.width === 1024 && img.height === 683),
     locationRef: evt._embedded.venues[0].name,
   }));
 
@@ -115,7 +115,6 @@ function renderGallery(data) {
 //функция установки количества событий на странице
 function setEventsOnPage() {
   const windowOuterWidth = window.outerWidth;
-  console.log(windowOuterWidth);
   //для планшета (проверка по ширине браузера) меняем количество подгружаемых в запросе событий на 21.
   if (windowOuterWidth > 768 && windowOuterWidth < 1280) {
     apiService.size = 21;
