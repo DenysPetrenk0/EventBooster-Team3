@@ -11,6 +11,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--animation-duration) var(--timing-function);
+  z-index: 10;
 }
 
 .lightbox.is-open {

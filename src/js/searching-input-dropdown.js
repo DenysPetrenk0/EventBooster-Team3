@@ -4,6 +4,8 @@ import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import debounce from 'lodash.debounce';
 import setPagination from './pagination';
+import { showLoader, hideLoader } from './preloader';
+import checkTheme from './theme-mode';
 
 const refs = {
   countryListRef: document.querySelector('.dropdown__list'),
@@ -18,6 +20,8 @@ const refs = {
   searchIconRef: document.querySelector('.search__icon'),
   clearSearchIconRef: document.querySelector('.clear-search__icon'),
 };
+
+checkTheme(JSON.parse(localStorage.getItem('Theme')));
 
 document.addEventListener('DOMContentLoaded', onStartEventsLoad);
 // window.onload = onStartEventsLoad;
@@ -71,10 +75,13 @@ function onClickDropdown(e) {
 
     setEventsOnPage();
 
+    showLoader();
+
     apiService
       .fetchEvent()
       .then(data => renderGallery(data))
-      .catch(console.log);
+      .catch(console.log)
+      .finally(hideLoader);
   }
 }
 
@@ -93,12 +100,15 @@ function onInputSearch(e) {
 
   setEventsOnPage();
 
+  showLoader();
+
   apiService
     .fetchEvent()
     .then(data => {
       renderGallery(data);
     })
-    .catch(console.log);
+    .catch(console.log)
+    .finally(hideLoader);
 }
 
 //функция генерации галереи событий
@@ -109,6 +119,7 @@ function renderGallery(data) {
     locationRef: evt._embedded.venues[0].name,
   }));
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
+  checkTheme(JSON.parse(localStorage.getItem('Theme')));
 }
 
 //функция установки количества событий на странице

@@ -1,14 +1,14 @@
 {{#each this}}
   <li class='card' data-index={{id}}>
-   <div class="cat_meta-box">
-    <img class='pics' src={{imgUrl.url}} alt='event image' />
-  <div class="cat__meta">
-    <h3 class="cat_title">{{dates.timezone}}</h3>
-    <p class="cat__meta__text">{{info}}</p>
-  </div>
-   </div> 
+    <div class='cat_meta-box'>
+      <img class='pics' src={{imgUrl.url}} alt='event image' />
+      <div class='cat__meta'>
+        <h3 class='cat_title'>{{dates.timezone}}</h3>
+        <p class='cat__meta__text'>{{info}}</p>
+      </div>
+    </div>
     <h2 class='card__title'>{{name}}</h2>
-    <p class='card__date'>{{dates.start.localDate}}</p>
-    <p class='card__location'>{{locationRef}}</p>
+    <p class='card__date' id='card-date'>{{dates.start.localDate}}</p>
+    <p class='card__location' id='card-location'>{{locationRef}}</p>
   </li>
 {{/each}}
