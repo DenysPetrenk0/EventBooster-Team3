@@ -4,6 +4,7 @@ import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import debounce from 'lodash.debounce';
 import { showLoader, hideLoader } from './preloader';
+import checkTheme from './theme-mode';
 
 const refs = {
   countryListRef: document.querySelector('.dropdown__list'),
@@ -18,6 +19,8 @@ const refs = {
   searchIconRef: document.querySelector('.search__icon'),
   clearSearchIconRef: document.querySelector('.clear-search__icon'),
 };
+
+checkTheme(JSON.parse(localStorage.getItem('Theme')));
 
 document.addEventListener('DOMContentLoaded', onStartEventsLoad);
 // window.onload = onStartEventsLoad;
@@ -114,6 +117,7 @@ function renderGallery(data) {
     locationRef: evt._embedded.venues[0].name,
   }));
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
+  checkTheme(JSON.parse(localStorage.getItem('Theme')));
 }
 
 //функция установки количества событий на странице

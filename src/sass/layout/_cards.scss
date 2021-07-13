@@ -77,6 +77,10 @@
     text-align: center;
     color: #ffffff;
     margin-bottom: 5px;
+
+    &.light-theme {
+      color: #212121;
+    }
   }
 
   &__location {
