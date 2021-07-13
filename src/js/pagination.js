@@ -9,7 +9,7 @@ const refs = {
 };
 export default function setPagination(totalItems) {
   const options = {
-    totalItems,
+    totalItems: apiService.totalEvents > 1000 ? 1000 : apiService.totalEvents,
     itemsPerPage: apiServices.size,
     visiblePages: 5,
     page: 1,
