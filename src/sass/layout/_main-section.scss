@@ -1,6 +1,22 @@
+body.dark-theme {
+  @media screen and (max-width: 767px) {
+    background-color: #101010;
+  }
+  background-color: #060606;
+  background-image: url('../images/body-background/noise-body.png');
+  background-size: cover;
+  background-position: center;
+}
+
+body.light-theme {
+  background-color: #e2e2e2;
+  background-image: url('../images/body-background/noise-body-light.png');
+  background-size: cover;
+  background-position: center;
+}
+
 .background.dark-theme {
-  background-color: #161616;
-  background-image: url('../images/main-background/bg-body-mobile.jpg');
+  background-image: url('../images/main-background/bg-body-mobile.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -10,38 +26,38 @@
   @media (min-device-pixel-ratio: 2) and (max-width: 767px),
     (min-resolution: 192dpi) and (max-width: 767px),
     (min-resolution: 2dppx) and (max-width: 767px) {
-    background-image: url('../images/main-background/bg-body-mobile2x.jpg');
+    background-image: url('../images/main-background/bg-body-mobile2x.png');
   }
 
   @media screen and (min-width: 768px) {
-    background-image: url('../images/main-background/bg-body-tablet.jpg');
+    background-image: url('../images/main-background/bg-body-tablet.png');
   }
 
   @media (min-device-pixel-ratio: 2) and (min-width: 768px),
     (min-resolution: 192dpi) and (min-width: 768px),
     (min-resolution: 2dppx) and (min-width: 768px) {
-    background-image: url('../images/main-background/bg-body-tablet2x.jpg');
+    background-image: url('../images/main-background/bg-body-tablet2x.png');
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url('../images/main-background/bg-body.jpg');
+    background-image: url('../images/main-background/bg-body.png');
   }
 
   @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
     (min-resolution: 192dpi) and (min-width: 1280px),
     (min-resolution: 2dppx) and (min-width: 1280px) {
-    background-image: url('../images/main-background/bg-body2x.jpg');
+    background-image: url('../images/main-background/bg-body2x.png');
   }
 }
 
 .background.light-theme {
   color: $secondary-text-color;
-  background-color: #e2e2e2;
   background-image: url('../images/main-background-light/bg-body-mobile-light.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   text-align: center;
+  padding-bottom: 100px;
 
   @media (min-device-pixel-ratio: 2) and (max-width: 767px),
     (min-resolution: 192dpi) and (max-width: 767px),
@@ -68,4 +84,8 @@
     (min-resolution: 2dppx) and (min-width: 1280px) {
     background-image: url('../images/main-background-light/bg-body-light2x.jpg');
   }
+}
+
+.cards-container {
+  padding-top: 1px;
 }
