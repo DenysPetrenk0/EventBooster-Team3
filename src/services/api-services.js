@@ -7,6 +7,7 @@ class ApiService {
     this._countryCode = '';
     this._size = 20;
     this._page = 0; // НАЧИНАЕТСЯ с 0, номер текущей страницы для отображения
+    this.totalPages = 0;
   }
 
   //запрос для поиска по полю input и dropdown на главной странице
@@ -19,6 +20,7 @@ class ApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         if (data.page.totalElements === 0) {
           return Promise.reject('Opps! Something went wrong');
         } else {

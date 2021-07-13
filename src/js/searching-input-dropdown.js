@@ -3,6 +3,7 @@ import dropdownTpl from '../tpl/dropdown.hbs';
 import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import debounce from 'lodash.debounce';
+import setPagination from './pagination';
 import { showLoader, hideLoader } from './preloader';
 import checkTheme from './theme-mode';
 
@@ -36,6 +37,7 @@ function onStartEventsLoad() {
     .fetchEvent()
     .then(data => {
       renderGallery(data);
+      setPagination(data.page.totalElements);
     })
     .catch(console.log);
 }
@@ -131,3 +133,4 @@ function setEventsOnPage() {
     apiService.size = 20;
   }
 }
+export default setEventsOnPage;
