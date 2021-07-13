@@ -1,4 +1,6 @@
 import modaltpl from '../tpl/modal.hbs';
+import apiService from '../services/api-services.js';
+import '../js/searching-input-dropdown.js';
 
 const refs = {
     jsGallery: document.querySelector(".cards__list"),
@@ -9,26 +11,32 @@ const refs = {
 };
 
 
+
 let currentIndex = 0;
 
-//Заполнение шаблонки_____________________________________
-
-// refs.lightBox.innerHTML = modaltpl;
 
 
-
-//Слушатели событий__________________________________________________
+//Слушатель событий(открытие модалки)__________________________________________________
 
 refs.jsGallery.addEventListener("click", (event) => {
-    event.preventDefault();
-    const targetImage = event.target;
+    // event.preventDefault();
+    if (event.target.classList.contains("cards__list")) return;
+    const targetId = event.target.closest('.card').dataset.index;
+    apiService.fetchEventById(targetId).then(data => { renderModal(data); console.log(data) }).catch();
 
-    if (targetImage.classList.contains("cards__list")) return;
+    console.log(targetId);
 
     refs.lightBox.classList.add("is-open");
-    currentIndex = +targetImage.dataset.index;
-    refs.modalCloseBtn.addEventListener("keydown", galleryScroll);
+
 });
+
+//Заполнение шаблонки_____________________________________
+function renderModal(data) {
+    console.log(data);
+    console.log();
+    refs.lightBox.innerHTML = modaltpl(data);
+}
+//Закрытие модалки(esc не доработан)________________________________________________________
 
 refs.lightBox.addEventListener("click", (evt) => {
     if (evt.target.classList.contains("lightbox__button") || evt.target.classList.contains('lightbox__overlay')) {
@@ -36,7 +44,6 @@ refs.lightBox.addEventListener("click", (evt) => {
     };
 });
 
-//Закрытие модалки(esc не доработан)________________________________________________________
 
 window.addEventListener("keydown", (event) => {
     if (event.code === "Escape") {
