@@ -29,13 +29,13 @@
   line-height: normal;
   text-align: center;
   font-size: 0;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .tui-pagination .tui-page-btn {
   display: inline-block;
   position: relative;
   width: 30px;
+  height: 30px;
   padding: 8px 0 6px;
   margin-left: 0;
   color: #fff;
@@ -44,14 +44,13 @@
   line-height: 1;
   text-decoration: none;
   vertical-align: middle;
-
   border-width: 1px 0;
-  border-radius: 30%;
 }
 
 .tui-pagination .tui-page-btn:hover {
   background-color: #dc56c5;
   opacity: 0.8;
+  background: url(../images/svg/rectangle.svg);
 }
 
 .tui-pagination .tui-is-selected,
@@ -63,11 +62,13 @@
 
 .tui-pagination .tui-is-selected:hover {
   background-color: none;
+  color: #dc56c5;
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
 .tui-pagination strong.tui-first-child {
   margin-left: 0;
+  background: url(../images/svg/rectangle.svg);
 }
 
 .tui-pagination .tui-first-child,
@@ -96,7 +97,7 @@
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
   overflow: hidden;
-  height: 26px;
+  height: 30px;
   padding: 0;
   font-size: 0;
   line-height: 26px;
@@ -146,25 +147,25 @@
 .tui-pagination .tui-ico-first {
   width: 11px;
   height: 10px;
-  background-position: 0px 0px;
+  background-position: -13px 0px;
 }
 
 .tui-pagination .tui-ico-prev {
   width: 6px;
   height: 10px;
-  background-position: -26px 0px;
+  background-position: -26px -12px;
 }
 
 .tui-pagination .tui-ico-next {
   width: 6px;
   height: 10px;
-  background-position: -13px -24px;
+  background-position: -21px -24px;
 }
 
 .tui-pagination .tui-ico-last {
   width: 11px;
   height: 10px;
-  background-position: 0px -12px;
+  background-position: -13px -12px;
 }
 
 .tui-pagination .tui-ico-ellip {
@@ -181,19 +182,19 @@
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-prev {
-  background-position: -26px -12px;
+  background-position: -26px 0px;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-first {
-  background-position: -13px 0px;
+  background-position: 0px 0px;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-next {
-  background-position: -21px -24px;
+  background-position: -13px -24px;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-last {
-  background-position: -13px -12px;
+  background-position: 0px -12px;
 }
 
 .tui-page-inputs {
