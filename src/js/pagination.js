@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import apiService from '../services/api-services';
-import { renderGallery } from '../js/searching-input-dropdown';
+import { renderGallery, setEventsOnPage } from '../js/searching-input-dropdown';
 
 function setPagination(totalEvents) {
   const options = {
@@ -14,6 +14,7 @@ function setPagination(totalEvents) {
 
   pagination.on('beforeMove', function (eventData) {
     apiService.page = eventData.page - 1;
+    setEventsOnPage();
     apiService.fetchEvent().then(renderGallery).catch(console.log);
   });
 }
