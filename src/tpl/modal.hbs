@@ -1,52 +1,49 @@
-{{!-- {{#each this}}
-  <div class='lightbox__overlay'></div>
-  <div class='lightbox__content'>
-    <button type='button' class='lightbox__button' data-action='close-lightbox'></button>
-    <div class='svg-container'>
-      <img class='modal-svg' src='{{images.url}}' alt='{{name}}' />
-    </div>
-    <div class='modal-section'>
-      <picture class='modal-img-section'>
-        <img class='modal-img' src='{{images.url}}' alt='{{name}}' />
-      </picture>
-      <div class='modal-container-info'>
-        <div class='modal-container'>
-          <h3 class='modal-header'>INFO</h3>
-          <p class='modal-text-info'>{{info}}</p>
-        </div>
-        <div class='modal-container'>
-          <h3 class='modal-header'>WHEN</h3>
-          <p class='modal-text'>{{dates.start.localDate}}</p>
-          <p class='modal-text'>{{dates.start.localTime}} {{dates.start.timezone}}</p>
-        </div>
-        <div class='modal-container'>
-          <h3 class='modal-header'>WHERE</h3>
-          <p class='modal-text'>{{dates.start.timezone}}</p>
-          <p class='modal-text'>{{locationRef}}</p>
-        </div>
-        <div class='modal-container'>
-          <h3 class='modal-header'>WHO</h3>
-          <p class='modal-text'>{{name}}</p>
-        </div>
-        <div class='modal-container'>
-          <h3 class='modal-header'>PRICE</h3>
-          <p class='modal-text'>{{priceRanges.type}}
-            {{priceRanges.min}}-{{priceRanges.max}}
-            {{priceRanges.currency}}</p>
-          <a href='/'>
-            <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
-          </a>
-          <p class='modal-text'>{{priceRanges.type}}
-            {{priceRanges.min}}-{{priceRanges.max}}
-            {{priceRanges.currency}}</p>
-          <a href='/'>
-            <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
-          </a>
-        </div>
+<div class='lightbox__overlay'></div>
+<div class='lightbox__content'>
+  <button type='button' class='lightbox__button' data-action='close-lightbox'></button>
+  <div class='svg-container'>
+    <img class='modal-svg' src='{{images.9.url}}' alt='{{name}}' />
+  </div>
+  <div class='modal-section'>
+    <picture class='modal-img-section'>
+      <img class='modal-img' src='{{images.0.url}}' alt='{{name}}' />
+    </picture>
+    <div class='modal-container-info'>
+      <div class='modal-container'>
+        <h3 class='modal-header'>INFO</h3>
+        <p class='modal-text-info'>{{info}}</p>
+      </div>
+      <div class='modal-container'>
+        <h3 class='modal-header'>WHEN</h3>
+        <p class='modal-text'>{{dates.start.localDate}}</p>
+        <p class='modal-text'>{{dates.start.localTime}} ({{dates.timezone}})</p>
+      </div>
+      <div class='modal-container'>
+        <h3 class='modal-header'>WHERE</h3>
+        <p class='modal-text'>{{dates.timezone}}</p>
+        <p class='modal-text'>{{_embedded.venues.0.address.line1}}</p>
+      </div>
+      <div class='modal-container'>
+        <h3 class='modal-header'>WHO</h3>
+        <p class='modal-text'>{{name}}</p>
+      </div>
+      <div class='modal-container'>
+        <h3 class='modal-header'>PRICE</h3>
+        <p class='modal-text ticket'>
+          {{priceRanges.0.type}}
+          {{priceRanges.0.min}}-{{priceRanges.0.max}}
+          {{priceRanges.0.currency}}</p>
         <a href='/'>
-          <button type='button' class='modal-btn-more'>MORE FROM THIS AUTHOR</button>
+          <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
+        </a>
+        <p class='modal-text ticket'>{{priceRanges.1.type}}
+          {{priceRanges.1.min}}-{{priceRanges.1.max}}
+          {{priceRanges.1.currency}}</p>
+        <a href='/'>
+          <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
         </a>
       </div>
+      <button type='button' class='modal-btn-more'>MORE FROM THIS AUTHOR</button>
     </div>
   </div>
-{{/each}} --}}
+</div>

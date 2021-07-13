@@ -11,7 +11,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--animation-duration) var(--timing-function);
-  z-index: 10;
+  z-index: 5;
 }
 
 .lightbox.is-open {
@@ -37,16 +37,18 @@
   left: 50%;
   z-index: 99;
   transform: translate(-50%, -50%);
-  border-radius: 207px 0px;
-  width: 270px;
+  border-radius: 142px 0px;
+  width: 272px;
   height: 99%;
   overflow: hidden;
   background-color: white;
   @media screen and (min-width: 767px) {
     width: 595px;
+    border-radius: 282px 0px;
   }
   @media screen and (min-width: 1200px) {
     width: 850px;
+    border-radius: 255px 0px;
   }
 }
 
@@ -60,13 +62,13 @@
 
 .lightbox__button {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 15px;
+  right: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 17px;
-  height: 17px;
+  width: 20px;
+  height: 20px;
   padding: 0;
   margin: 0;
   border: none;
@@ -95,9 +97,9 @@
 }
 
 .modal-svg {
-  border-radius: 0;
-  width: 50px;
-  height: 50px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
   display: block;
   margin: 45px auto 10px;
   @media screen and (min-width: 767px) {
@@ -122,7 +124,8 @@
 .modal-header {
   margin-bottom: 5px;
   text-align: center;
-  font-weight: 400;
+  font-weight: 600;
+  color: $accent-color;
   font-size: 15px;
   @media screen and (min-width: 767px) {
     text-align: start;
@@ -135,23 +138,32 @@
 
 .modal-text-info {
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 10px;
+  height: 40px;
+  color: $secondary-text-color;
+  overflow: auto;
+  line-height: 1.4;
   margin-bottom: 10px;
   @media screen and (min-width: 767px) {
     text-align: start;
+    overflow: scroll;
+    height: 50px;
   }
   @media screen and (min-width: 1200px) {
     font-size: 15px;
     line-height: 1.22;
-    width: 450px;
+    height: 70px;
   }
 }
 
 .modal-text {
   text-align: center;
   font-size: 10px;
-  font-weight: 400;
+  position: relative;
+  color: $secondary-text-color;
+  font-weight: 500;
+  line-height: 1.4;
   @media screen and (min-width: 767px) {
     text-align: start;
     font-size: 12px;
@@ -162,8 +174,33 @@
   }
 }
 
+.modal-text.ticket::before {
+  background-image: url(../images/modal/ticket1.svg);
+  position: absolute;
+  top: 0px;
+  left: -11px;
+  display: block;
+  margin-left: 30px;
+  content: '';
+  height: 14px;
+  width: 20px;
+  background-repeat: no-repeat;
+  @media screen and (min-width: 767px) {
+    left: -58px;
+  }
+}
+
+.modal-text.ticket {
+  @media screen and (min-width: 767px) {
+    margin-left: 31px;
+  }
+}
+
 .modal-container:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 7px;
+  @media screen and (min-width: 767px) {
+    margin-bottom: 7px;
+  }
   @media screen and (min-width: 1200px) {
     margin-bottom: 10px;
   }
@@ -174,7 +211,7 @@
   left: 50%;
   transform: translate(-50%, 0);
   margin: 10px 0 12px 0;
-  width: 145px;
+  width: 128px;
   font-size: 11px;
   height: 33px;
   border: none;
@@ -184,21 +221,23 @@
   color: white;
   text-align: center;
   @media screen and (min-width: 767px) {
-    left: 25%;
+    width: 120px;
+    left: 32%;
     transform: translate(-50%, 0);
-    margin: 12px 0 12px 0;
+    margin: 8px 0 12px 0;
   }
   @media screen and (min-width: 1200px) {
-    left: 16%;
+    left: 15%;
   }
 }
 
 .modal-btn-more {
-  width: 140px;
-  height: 40px;
+  width: 190px;
+  height: 36px;
   font-size: 11px;
+  font-weight: 500;
   position: relative;
-  left: 50%;
+  left: 47%;
   transform: translate(-50%, 0);
   border: 2px solid #4c00fe;
   border-radius: 5px;
@@ -207,16 +246,18 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   @media screen and (min-width: 767px) {
     width: 255px;
-    height: 40px;
+    height: 35px;
     left: -6%;
     transform: translate(-50%, 0);
   }
   @media screen and (min-width: 767px) {
-    left: -7%;
+    left: -28%;
+    width: 208px;
+    font-size: 13px;
   }
   @media screen and (min-width: 1200px) {
     margin-top: 15px;
-    left: 8%;
+    left: 0%;
   }
 }
 
@@ -226,25 +267,36 @@
   }
   @media screen and (min-width: 768px) {
     margin: 0 27px 0 50px;
+    width: 240px;
+    height: 300px;
   }
   @media screen and (min-width: 1200px) {
     margin: 0 60px 0 50px;
+    width: 300px;
+    height: 305px;
   }
 }
 
 .modal-container-info {
+  width: 230px;
   display: block;
+  @media screen and (min-width: 768px) {
+    width: 173px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 400px;
+  }
 }
 
 .modal-img {
   border-radius: 0;
   margin-bottom: 0;
   @media screen and (min-width: 768px) {
-    width: 500px;
-    height: 380px;
+    width: 240px;
+    height: 300px;
   }
   @media screen and (min-width: 1200px) {
-    width: 700px;
-    height: 453px;
+    width: 300px;
+    height: 455px;
   }
 }
