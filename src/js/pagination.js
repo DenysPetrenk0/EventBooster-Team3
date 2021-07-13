@@ -2,22 +2,21 @@ import Pagination from 'tui-pagination';
 import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import setEventsOnPage from '../js/searching-input-dropdown';
-import apiServices from '../services/api-services';
 
 const refs = {
   eventCardsRef: document.querySelector('.cards__list'),
 };
-export default function setPagination(totalItems) {
+export default function setPagination(totalEvents) {
   const options = {
-    totalItems: apiService.totalEvents > 1000 ? 1000 : apiService.totalEvents,
-    itemsPerPage: apiServices.size,
+    totalItems: totalEvents > 1000 ? 1000 : totalEvents,
+    itemsPerPage: apiService.size,
     visiblePages: 5,
     page: 1,
     centerAlign: true,
   };
   const pagination = new Pagination('pagination', options);
   pagination.on('beforeMove', function (eventData) {
-    apiServie.page = eventData.page - 1;
+    apiService.page = eventData.page - 1;
     apiService.fetchEvent().then(renderGallery).catch(console.log);
   });
 }

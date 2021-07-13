@@ -4,8 +4,6 @@ import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import debounce from 'lodash.debounce';
 import setPagination from './pagination';
-import { showLoader, hideLoader } from './preloader';
-import checkTheme from './theme-mode';
 
 const refs = {
   countryListRef: document.querySelector('.dropdown__list'),
@@ -21,8 +19,6 @@ const refs = {
   clearSearchIconRef: document.querySelector('.clear-search__icon'),
 };
 
-checkTheme(JSON.parse(localStorage.getItem('Theme')));
-
 document.addEventListener('DOMContentLoaded', onStartEventsLoad);
 // window.onload = onStartEventsLoad;
 
@@ -37,7 +33,6 @@ function onStartEventsLoad() {
     .fetchEvent()
     .then(data => {
       renderGallery(data);
-      setPagination(data.page.totalElements);
     })
     .catch(console.log);
 }
@@ -75,13 +70,10 @@ function onClickDropdown(e) {
 
     setEventsOnPage();
 
-    showLoader();
-
     apiService
       .fetchEvent()
       .then(data => renderGallery(data))
-      .catch(console.log)
-      .finally(hideLoader);
+      .catch(console.log);
   }
 }
 
@@ -100,15 +92,12 @@ function onInputSearch(e) {
 
   setEventsOnPage();
 
-  showLoader();
-
   apiService
     .fetchEvent()
     .then(data => {
       renderGallery(data);
     })
-    .catch(console.log)
-    .finally(hideLoader);
+    .catch(console.log);
 }
 
 //функция генерации галереи событий
@@ -118,8 +107,9 @@ function renderGallery(data) {
     imgUrl: evt.images.find(img => img.width === 640 && img.height === 427),
     locationRef: evt._embedded.venues[0].name,
   }));
+
+  setPagination(data.page.totalElements);
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
-  checkTheme(JSON.parse(localStorage.getItem('Theme')));
 }
 
 //функция установки количества событий на странице
