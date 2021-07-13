@@ -8,12 +8,16 @@ const Theme = {
 
 themeSwitchRef.addEventListener('change', onSwitchTheme);
 
-defineUserThemeSettings(defaultUserThemeValue);
+setTimeout(() => {
+  defineUserThemeSettings(defaultUserThemeValue);
+}, 150);
 
-function defineUserThemeSettings(value) {
+export default function defineUserThemeSettings(value) {
   if (value === Theme.DARK) return;
 
-  if (value === Theme.LIGHT) onSwitchTheme();
+  if (value === Theme.LIGHT) {
+    onSwitchingTheme('dark-theme', Theme.LIGHT);
+  }
 }
 
 function onSwitchTheme() {
@@ -30,8 +34,23 @@ function onSwitchTheme() {
 }
 
 function onSwitchingTheme(presentTheme, nextTheme) {
-  document.body.classList.replace(presentTheme, nextTheme);
-  document.querySelector('.background').classList.replace(presentTheme, nextTheme);
+  switchClassName(presentTheme, nextTheme);
+
   localStorage.setItem('Theme', JSON.stringify(nextTheme));
   themeSwitchRef.checked = presentTheme === Theme.DARK;
+}
+
+function switchClassName(present, next) {
+  document.body.classList.replace(present, next);
+  document.querySelector('.background').classList.replace(present, next);
+
+  if (present === 'dark-theme') {
+    document.querySelectorAll('.card__date').forEach(e => (e.style.color = 'rgb(14,14,14)'));
+    document.querySelectorAll('.card__location').forEach(e => (e.style.color = 'rgb(14,14,14)'));
+  }
+
+  if (present === 'light-theme') {
+    document.querySelectorAll('.card__date').forEach(e => (e.style.color = ''));
+    document.querySelectorAll('.card__location').forEach(e => (e.style.color = ''));
+  }
 }
