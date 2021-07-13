@@ -1,5 +1,4 @@
 #preloader {
-  // background-color: #000;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,6 +6,10 @@
   height: 100%;
   z-index: 1000;
 }
+.preloader-dark-bg {
+  background-color: #000;
+}
+
 #loader {
   display: block;
   position: relative;
