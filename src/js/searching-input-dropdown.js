@@ -33,6 +33,7 @@ function onStartEventsLoad() {
     .fetchEvent()
     .then(data => {
       renderGallery(data);
+      setPagination(data.page.totalElements);
     })
     .catch(console.log);
 }
@@ -72,7 +73,10 @@ function onClickDropdown(e) {
 
     apiService
       .fetchEvent()
-      .then(data => renderGallery(data))
+      .then(data => {
+        renderGallery(data);
+        setPagination(data.page.totalElements);
+      })
       .catch(console.log);
   }
 }
@@ -84,8 +88,7 @@ function onInputSearch(e) {
   if (!e.target.value.length) {
     refs.searchIconRef.style.opacity = 1;
     refs.clearSearchIconRef.style.opacity = 0;
-  }
-  if (e.target.value.length) {
+  } else {
     refs.clearSearchIconRef.style.opacity = 1;
     refs.searchIconRef.style.opacity = 0;
   }
@@ -96,6 +99,7 @@ function onInputSearch(e) {
     .fetchEvent()
     .then(data => {
       renderGallery(data);
+      setPagination(data.page.totalElements);
     })
     .catch(console.log);
 }
@@ -107,8 +111,6 @@ function renderGallery(data) {
     imgUrl: evt.images.find(img => img.width === 1024 && img.height === 683),
     locationRef: evt._embedded.venues[0].name,
   }));
-
-  setPagination(data.page.totalElements);
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
 }
 
@@ -122,4 +124,5 @@ function setEventsOnPage() {
     apiService.size = 20;
   }
 }
-export default setEventsOnPage;
+
+export { renderGallery, setEventsOnPage };
