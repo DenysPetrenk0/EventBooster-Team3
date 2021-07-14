@@ -243,6 +243,8 @@
   border-radius: 5px;
   background-color: white;
   color: #4c00fe;
+  cursor: pointer;
+
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   @media screen and (min-width: 767px) {
     width: 255px;
@@ -258,6 +260,12 @@
   @media screen and (min-width: 1200px) {
     margin-top: 15px;
     left: 0%;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #4c00fe;
+    color: white;
   }
 }
 
