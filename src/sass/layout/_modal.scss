@@ -96,8 +96,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-svg {
-  border-radius: 50%;
+.svg-container {
   width: 80px;
   height: 80px;
   display: block;
@@ -112,6 +111,13 @@
     height: 100px;
     margin: 30px auto 20px;
   }
+}
+
+.modal-svg {
+  border-radius: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
 }
 
 .modal-section {
@@ -188,7 +194,7 @@
 .svg-ticket {
   display: inline;
   width: 20px;
-  height: 15px;
+  height: 13px;
   margin-right: 10px;
   text-align: center;
   vertical-align: middle;
@@ -196,6 +202,8 @@
   @media screen and (min-width: 767px) {
     margin-bottom: 6px;
     margin-left: 2px;
+  }
+  @media screen and (min-width: 1200px) {
   }
 }
 
@@ -255,9 +263,14 @@
     margin: 8px 0 12px 0;
   }
   @media screen and (min-width: 1200px) {
-    left: 13%;
+    left: 14%;
     margin: 15px 0 12px 0;
   }
+}
+
+.modal-btn-buy.disable {
+  color: rgb(248, 247, 247);
+  background-color: rgba(43, 42, 42, 0.281);
 }
 
 .modal-btn-more {
@@ -273,6 +286,11 @@
   background-color: white;
   color: #4c00fe;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  &:hover,
+  &:focus {
+    background-color: #4c00fe;
+    color: white;
+  }
   @media screen and (min-width: 767px) {
     left: -19%;
     width: 208px;
@@ -305,16 +323,13 @@
   @media screen and (min-width: 1200px) {
     margin: 0 60px 0 50px;
     width: 350px;
-    height: 455px;
+    height: 463px;
   }
 }
 
 .modal-container-info {
   width: 230px;
   display: block;
-  @media screen and (min-width: 768px) {
-    // width: 173px;
-  }
   @media screen and (min-width: 1200px) {
     width: 400px;
   }
@@ -323,14 +338,7 @@
 .modal-img {
   border-radius: 0;
   margin-bottom: 0;
-  @media screen and (min-width: 768px) {
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-  }
-  @media screen and (min-width: 1200px) {
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-  }
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
 }
