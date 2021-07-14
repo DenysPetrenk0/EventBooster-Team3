@@ -15,7 +15,7 @@ body.light-theme {
   background-position: center;
 }
 
-.background.dark-theme {
+body.dark-theme .background {
   background-image: url('../images/main-background/bg-body-mobile.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -50,7 +50,7 @@ body.light-theme {
   }
 }
 
-.background.light-theme {
+body.light-theme .background {
   color: $secondary-text-color;
   background-image: url('../images/main-background-light/bg-body-mobile-light.jpg');
   background-repeat: no-repeat;
