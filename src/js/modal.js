@@ -26,6 +26,7 @@ refs.eventCardsRef.addEventListener('click', event => {
     .then(data => renderModal(data))
     .catch();
   refs.lightBox.classList.add('is-open');
+  document.body.classList.add('no-scroll')
   window.addEventListener('keydown', escapeKeyListener);
 });
 
@@ -82,5 +83,6 @@ function escapeKeyListener(evt) {
 
 function closeLightBox() {
   refs.lightBox.classList.remove('is-open');
+  document.body.classList.remove('no-scroll')
   window.removeEventListener('keydown', escapeKeyListener);
 }
