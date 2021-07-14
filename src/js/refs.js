@@ -20,8 +20,11 @@ const refs = {
   //preloader.js
   preloader: document.querySelector('#preloader'),
 
-  ///theme-mode.js
+  //theme-mode.js
   themeSwitchRef: document.querySelector('#theme-switch-toggle'),
+
+  //pagination.js
+  pagination: document.querySelector('.tui-pagination'),
 };
 
 export default refs;

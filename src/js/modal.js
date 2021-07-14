@@ -7,16 +7,6 @@ import refs from './refs';
 import { showLoader, hideLoader } from './preloader.js';
 import '../js/searching-input-dropdown.js';
 
-// const refs = {
-//   eventCardsRef: document.querySelector('.cards__list'),
-//   lightBox: document.querySelector('.lightbox'),
-//   searchInputRef: document.querySelector('.form-field'),
-
-//   jsLightbox: document.querySelector('.js-lightbox'),
-//   modalCloseBtn: document.querySelector('.lightbox__button'),
-//   lighBoxOverlay: document.querySelector('.lightbox__overlay'),
-// };
-
 //Слушатель событий(открытие модалки)_____________________
 refs.eventCardsRef.addEventListener('click', event => {
   if (event.target.classList.contains('cards__list')) return;
@@ -62,6 +52,7 @@ refs.lightBox.addEventListener('click', evt => {
 
     apiService.keyword = evt.target.dataset.author;
     showLoader();
+    apiService.page = 0;
     setEventsOnPage();
 
     apiService
