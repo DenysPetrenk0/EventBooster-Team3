@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import setEventsOnPage from '../js/searching-input-dropdown';
+import checkTheme from './theme-mode';
 
 const refs = {
   eventCardsRef: document.querySelector('.cards__list'),
@@ -30,4 +31,5 @@ function renderGallery(data) {
     locationRef: evt._embedded.venues[0].name,
   }));
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
+  checkTheme(JSON.parse(localStorage.getItem('Theme')));
 }

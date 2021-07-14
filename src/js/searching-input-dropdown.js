@@ -4,11 +4,13 @@ import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import debounce from 'lodash.debounce';
 import setPagination from './pagination';
+import checkTheme from './theme-mode';
 
 const refs = {
   countryListRef: document.querySelector('.dropdown__list'),
   dropdownTitleRef: document.querySelector('.dropdown__title'),
   dropdownRef: document.querySelector('.dropdown'),
+  countriesDropdownRef: document.querySelector('.countries-dropdown__wrapper'),
 
   eventCardsRef: document.querySelector('.cards__list'),
   searchInputRef: document.querySelector('.form-field'),
@@ -22,33 +24,29 @@ const refs = {
 document.addEventListener('DOMContentLoaded', onStartEventsLoad);
 // window.onload = onStartEventsLoad;
 
-document.addEventListener('click', onClickDropdown);
+refs.countriesDropdownRef.addEventListener('click', onClickDropdown);
 refs.searchInputRef.addEventListener('input', debounce(onInputSearch, 500));
 
 //функция подгрузки событий при первой загрузке страницы
 function onStartEventsLoad() {
   setEventsOnPage();
 
-  apiService
-    .fetchEvent()
-    .then(data => {
-      renderGallery(data);
-    })
-    .catch(console.log);
+  apiService.fetchEvent().then(renderGallery).catch(console.log);
 }
 
 //функция обработки выбора списка стран поиск
 function onClickDropdown(e) {
+  console.log(e.target);
   if (
     e.target.getAttributeNames().includes('data-dropdown') ||
     e.target.getAttributeNames().includes('data-country-id')
   ) {
     // Проверяем кликнули ли мы по стране, если да, то оставляем в форме страну, добавляем аттрибут страны и фетчим
     if (e.target.classList.contains('dropdown__item')) {
-      const attributeName = e.target.getAttribute('data-country-id');
+      const attributeName = e.target.dataset.countryId;
       const countryName = e.target.textContent;
 
-      refs.dropdownTitleRef.setAttribute('data-country-id', attributeName);
+      refs.dropdownTitleRef.dataset.countryId = attributeName;
       refs.dropdownTitleRef.textContent = countryName;
     }
 
@@ -84,8 +82,7 @@ function onInputSearch(e) {
   if (!e.target.value.length) {
     refs.searchIconRef.style.opacity = 1;
     refs.clearSearchIconRef.style.opacity = 0;
-  }
-  if (e.target.value.length) {
+  } else {
     refs.clearSearchIconRef.style.opacity = 1;
     refs.searchIconRef.style.opacity = 0;
   }
@@ -110,6 +107,7 @@ function renderGallery(data) {
 
   setPagination(data.page.totalElements);
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
+  checkTheme(JSON.parse(localStorage.getItem('Theme')));
 }
 
 //функция установки количества событий на странице
