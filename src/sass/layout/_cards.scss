@@ -156,6 +156,7 @@
     .card:focus & {
       transform: translateY(0);
       opacity: 1;
+      z-index: 0;
     }
   }
 

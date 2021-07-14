@@ -4,7 +4,7 @@ import { renderGallery, setEventsOnPage } from './searching-input-dropdown';
 import setPagination from './pagination';
 import ticketSvg from '../images/modal/ticket.svg';
 import refs from './refs';
-
+import { showLoader, hideLoader } from './preloader.js';
 import '../js/searching-input-dropdown.js';
 
 // const refs = {
@@ -21,10 +21,12 @@ import '../js/searching-input-dropdown.js';
 refs.eventCardsRef.addEventListener('click', event => {
   if (event.target.classList.contains('cards__list')) return;
   const targetId = event.target.closest('.card').dataset.index;
+  showLoader();
   apiService
     .fetchEventById(targetId)
     .then(data => renderModal(data))
-    .catch();
+    .catch()
+    .finally(hideLoader);
   refs.lightBox.classList.add('is-open');
   window.addEventListener('keydown', escapeKeyListener);
 });
@@ -59,7 +61,7 @@ refs.lightBox.addEventListener('click', evt => {
     refs.searchIconRef.style.opacity = 0;
 
     apiService.keyword = evt.target.dataset.author;
-
+    showLoader();
     setEventsOnPage();
 
     apiService
@@ -68,7 +70,8 @@ refs.lightBox.addEventListener('click', evt => {
         renderGallery(data);
         setPagination(data.page.totalElements);
       })
-      .catch(console.log);
+      .catch(console.log)
+      .finally(hideLoader);
     closeLightBox();
   }
 });
