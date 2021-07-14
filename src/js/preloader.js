@@ -1,4 +1,6 @@
-const preloader = document.querySelector('#preloader');
+import refs from './refs';
+// const preloader = document.querySelector('#preloader');
+
 window.onload = function () {
   setTimeout(() => {
     hideLoader();
@@ -6,11 +8,11 @@ window.onload = function () {
 };
 
 function showLoader() {
-  preloader.classList.remove('visually-hidden');
+  refs.preloader.classList.remove('visually-hidden');
 }
 function hideLoader() {
-  preloader.classList.remove('preloader-dark-bg');
-  preloader.classList.add('visually-hidden');
+  refs.preloader.classList.remove('preloader-dark-bg');
+  refs.preloader.classList.add('visually-hidden');
 }
 
 export { showLoader, hideLoader };
