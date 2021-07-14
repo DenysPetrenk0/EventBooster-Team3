@@ -45,6 +45,10 @@ class ApiService {
     return fetch(url).then(response => response.json());
   }
 
+  resetPage() {
+    this._page = 0;
+  }
+
   get keyword() {
     return this._keyword;
   }
