@@ -27,6 +27,7 @@ refs.searchInputRef.addEventListener('input', debounce(onInputSearch, 500));
 
 //функция подгрузки событий при первой загрузке страницы
 function onStartEventsLoad() {
+  // refs.eventCardsRef.innerHTML = '';
   setEventsOnPage();
 
   apiService
@@ -76,6 +77,7 @@ function onClickDropdown(e) {
   if (e.target.getAttributeNames().includes('data-country-id')) {
     apiService.countryCode = refs.dropdownTitleRef.getAttribute('data-country-id');
 
+    refs.eventCardsRef.innerHTML = '';
     setEventsOnPage();
 
     apiService
@@ -91,6 +93,7 @@ function onClickDropdown(e) {
 //функция обработки поля input поиск
 function onInputSearch(e) {
   apiService.keyword = e.target.value;
+  refs.eventCardsRef.innerHTML = '';
 
   if (!e.target.value.length) {
     refs.searchIconRef.style.opacity = 1;
