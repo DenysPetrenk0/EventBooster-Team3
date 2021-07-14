@@ -32,13 +32,10 @@ function onStartEventsLoad() {
   // refs.eventCardsRef.innerHTML = '';
   setEventsOnPage();
 
-  apiService
-    .fetchEvent()
-    .then(data => {
-      renderGallery(data);
-      setPagination(data.page.totalElements);
-    })
-    .catch(console.log);
+  apiService.fetchEvent().then(data => {
+    renderGallery(data);
+    setPagination(data.page.totalElements);
+  });
 }
 
 document.body.addEventListener('click', closeCntrListByNotargetClick);

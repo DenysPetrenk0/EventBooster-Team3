@@ -1,3 +1,5 @@
+import { alert, notice, info, success, error, defaultModules } from '@pnotify/core';
+
 class ApiService {
   constructor() {
     this.API_KEY = 'R6T2f5StA43ZJAlAODPBSAJJjoAoGQks';
@@ -17,13 +19,21 @@ class ApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         if (data.page.totalElements === 0) {
-          return Promise.reject('Opps! Something went wrong');
+          throw error({
+            title: 'No results found',
+            delay: 2000,
+            styling: 'material',
+            sticker: false,
+            mode: 'dark',
+            closerHover: true,
+            width: '280px',
+          });
         } else {
           return data;
         }
-      });
+      })
+      .catch();
   }
 
   //запрос для модального окна по ID события, его можно взять в атрибуте <li class='card' data-index={{id}}>
