@@ -16,7 +16,6 @@ const refs = {
 
 //Слушатель событий(открытие модалки)_____________________
 refs.jsGallery.addEventListener('click', event => {
-  // event.preventDefault();
   if (event.target.classList.contains('cards__list')) return;
   const targetId = event.target.closest('.card').dataset.index;
   apiService
@@ -61,9 +60,7 @@ refs.lightBox.addEventListener('click', evt => {
   }
 });
 
-//Закрытие модалки по Escape ________________________________________
-// window.addEventListener('keydown', escapeKeyListener);
-
+//Закрытие модалки по Escape, функция для callback_________________________________
 function escapeKeyListener(evt) {
   if (evt.code === 'Escape') {
     closeLightBox();
