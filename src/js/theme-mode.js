@@ -34,25 +34,8 @@ function onSwitchTheme() {
 }
 
 function onSwitchingTheme(presentTheme, nextTheme) {
-  switchClassName(presentTheme, nextTheme);
+  document.body.classList.replace(presentTheme, nextTheme);
 
   localStorage.setItem('Theme', JSON.stringify(nextTheme));
   refs.themeSwitchRef.checked = presentTheme === Theme.DARK;
-}
-
-function switchClassName(present, next) {
-  document.body.classList.replace(present, next);
-  document.querySelector('.background').classList.replace(present, next);
-
-  if (present === 'dark-theme') {
-    document.querySelectorAll('.card__date').forEach(e => e.classList.add('light-theme'));
-    document.querySelectorAll('.card__location').forEach(e => e.classList.add('light-theme'));
-    document.querySelectorAll('.tui-page-btn').forEach(e => e.classList.add('light-theme'));
-  }
-
-  if (present === 'light-theme') {
-    document.querySelectorAll('.card__date').forEach(e => e.classList.remove('light-theme'));
-    document.querySelectorAll('.card__location').forEach(e => e.classList.remove('light-theme'));
-    document.querySelectorAll('.tui-page-btn').forEach(e => e.classList.remove('light-theme'));
-  }
 }

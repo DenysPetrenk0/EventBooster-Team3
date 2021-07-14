@@ -77,10 +77,6 @@
     text-align: center;
     color: #ffffff;
     margin-bottom: 5px;
-
-    &.light-theme {
-      color: #212121;
-    }
   }
 
   &__location {
@@ -180,4 +176,10 @@
     color: #dc56c5;
     margin-bottom: 5px;
   }
+}
+
+// THEME-SWITCH SETTINGS
+body.light-theme .card__date,
+body.light-theme .card__location {
+  color: #212121;
 }

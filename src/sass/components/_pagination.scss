@@ -45,14 +45,6 @@
   text-decoration: none;
   vertical-align: middle;
   border-width: 1px 0;
-
-  &.light-theme {
-    color: $secondary-text-color;
-  }
-
-  &.tui-is-selected.light-theme {
-    color: $accent-color;
-  }
 }
 
 .tui-pagination .tui-page-btn:hover {
@@ -232,4 +224,13 @@
   height: 12px;
   padding: 8px 0 6px;
   vertical-align: top;
+}
+
+// THEME-SWITCH SETTINGS
+body.light-theme .tui-page-btn {
+  color: $secondary-text-color;
+
+  &.tui-is-selected {
+    color: $accent-color;
+  }
 }
