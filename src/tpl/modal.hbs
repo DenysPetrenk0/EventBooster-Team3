@@ -9,9 +9,13 @@
       <img class='modal-img' src='{{imgBigUrl.url}}' alt='{{name}}' />
     </picture>
     <div class='modal-container-info'>
-      <div class='modal-container'>
+      <div class='modal-container modal-wrapp'>
         <h3 class='modal-header'>INFO</h3>
-        <p class='modal-text-info'>{{info}}</p>
+        {{#if info}}
+          <p class='modal-text-info'>{{info}}</p>
+        {{else}}
+          <p class='modal-text-info'>No Information</p>
+        {{/if}}
       </div>
       <div class='modal-container'>
         <h3 class='modal-header'>WHEN</h3>
@@ -25,23 +29,42 @@
       </div>
       <div class='modal-container'>
         <h3 class='modal-header'>WHO</h3>
-        <p class='modal-text'>{{name}}</p>
+        <p class='modal-text wrapper-who'>{{name}}</p>
       </div>
-      <div class='modal-container'>
+      <div class='modal-container wrapper-who-price'>
         <h3 class='modal-header'>PRICE</h3>
-        <p class='modal-text ticket'>
-          {{priceRanges.0.type}}
-          {{priceRanges.0.min}}-{{priceRanges.0.max}}
-          {{priceRanges.0.currency}}</p>
-        <a href='/'>
+        {{#if priceRanges}}
+          <p class='modal-text wrapper-price'><img class='svg-ticket' src='{{ticketSvg}}' alt='' />
+            {{priceRanges.0.type}}
+            {{priceRanges.0.min}}-{{priceRanges.0.max}}
+            {{priceRanges.0.currency}}</p>
+        {{else}}
+          <p>PRICE NOT AVAILABLE</p>
+        {{/if}}
+
+        <a href='{{urlPrice}}' target='_blank'>
           <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
         </a>
-        <p class='modal-text ticket'>{{priceRanges.1.type}}
-          {{priceRanges.1.min}}-{{priceRanges.1.max}}
-          {{priceRanges.1.currency}}</p>
-        <a href='/'>
-          <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
-        </a>
+        <div class='svg-ticket'>
+          {{#if vipPrice}}
+            <p class='modal-text wrapper-price'>
+              <img class='svg-ticket' src='{{ticketSvg}}' alt='' />
+              {{price.1.type}}
+              {{priceRanges.1.min}}-{{priceRanges.1.max}}
+              {{priceRanges.1.currency}}</p>
+          {{else}}
+            <p class='modal-text wrapper-price'>Vip is not available</p>
+          {{/if}}
+        </div>
+        {{#if vipPrice}}
+          <a href='{{urlVip}}' target='_blank'>
+            <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
+          </a>
+        {{else}}
+          <a href='{{urlVip}}' target='_blank'>
+            <button type='button' class='modal-btn-buy disable' disabled>BUY TICKETS</button>
+          </a>
+        {{/if}}
       </div>
       <button type='button' class='modal-btn-more' data-author='{{authorName}}'>MORE FROM THIS
         AUTHOR</button>
