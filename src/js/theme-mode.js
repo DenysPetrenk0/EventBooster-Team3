@@ -26,11 +26,7 @@ function onSwitchTheme() {
 
     return;
   }
-
-  if (document.body.classList.contains(Theme.LIGHT)) {
-    onSwitchingTheme(Theme.LIGHT, Theme.DARK);
-    return;
-  }
+  onSwitchingTheme(Theme.LIGHT, Theme.DARK);
 }
 
 function onSwitchingTheme(presentTheme, nextTheme) {
