@@ -12,6 +12,8 @@
   pointer-events: none;
   transition: opacity var(--animation-duration) var(--timing-function);
   z-index: 5;
+
+  overflow-y: scroll;
 }
 
 .lightbox.is-open {
@@ -31,17 +33,24 @@
   z-index: 4;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .lightbox__content {
   position: absolute;
-  top: 50%;
+  // top: 50%;
   left: 50%;
   z-index: 99;
   transform: translate(-50%, -50%);
   border-radius: 142px 0px;
   width: 272px;
-  height: 99%;
+  // height: 99%;
   overflow: hidden;
   background-color: white;
+
+  top: 60%;
+  padding-bottom: 50px;
   @media screen and (min-width: 767px) {
     width: 595px;
     border-radius: 282px 0px;
