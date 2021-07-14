@@ -1,6 +1,8 @@
 import Pagination from 'tui-pagination';
 import apiService from '../services/api-services';
+import checkTheme from './theme-mode';
 import { renderGallery, setEventsOnPage } from '../js/searching-input-dropdown';
+
 
 function setPagination(totalEvents) {
   const options = {
@@ -20,3 +22,4 @@ function setPagination(totalEvents) {
 }
 
 export default setPagination;
+

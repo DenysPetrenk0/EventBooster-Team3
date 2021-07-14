@@ -45,6 +45,14 @@
   text-decoration: none;
   vertical-align: middle;
   border-width: 1px 0;
+
+  &.light-theme {
+    color: $secondary-text-color;
+  }
+
+  &.tui-is-selected.light-theme {
+    color: $accent-color;
+  }
 }
 
 .tui-pagination .tui-page-btn:hover {
