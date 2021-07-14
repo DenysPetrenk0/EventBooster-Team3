@@ -38,6 +38,13 @@ function onStartEventsLoad() {
     .catch(console.log);
 }
 
+document.body.addEventListener('click', closeCntrListByNotargetClick);
+function closeCntrListByNotargetClick(e) {
+  if (!e.target.closest('.countries-dropdown__wrapper')) {
+    refs.countryListRef.classList.add('visually-hidden');
+  }
+}
+
 //функция обработки выбора списка стран поиск
 function onClickDropdown(e) {
   if (
