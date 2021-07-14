@@ -2,6 +2,7 @@ import modaltpl from '../tpl/modal.hbs';
 import apiService from '../services/api-services.js';
 import { renderGallery, setEventsOnPage } from './searching-input-dropdown';
 import setPagination from './pagination';
+import ticketSvg from "../images/modal/ticket.svg"
 
 import '../js/searching-input-dropdown.js';
 
@@ -16,7 +17,6 @@ const refs = {
 
 //Слушатель событий(открытие модалки)_____________________
 refs.jsGallery.addEventListener('click', event => {
-  // event.preventDefault();
   if (event.target.classList.contains('cards__list')) return;
   const targetId = event.target.closest('.card').dataset.index;
   apiService
@@ -24,6 +24,7 @@ refs.jsGallery.addEventListener('click', event => {
     .then(data => renderModal(data))
     .catch();
   refs.lightBox.classList.add('is-open');
+  window.addEventListener('keydown', escapeKeyListener);
 });
 
 //Заполнение шаблонки________________________________________________
@@ -33,6 +34,10 @@ function renderModal(data) {
     authorName: data.name.split(' ').slice(0, 2).join(' '),
     imgBigUrl: data.images.find(img => img.width === 1024 && img.height === 683),
     imgSmallUrl: data.images.find(img => img.width === 305 && img.height === 225),
+    vipPrice: data.priceRanges[1] ? 1 : 0,
+    urlPrice: data.url,
+    urlVip: data.url,
+    ticketSvg,
   };
   refs.lightBox.innerHTML = modaltpl(event);
 }
@@ -43,7 +48,7 @@ refs.lightBox.addEventListener('click', evt => {
     evt.target.classList.contains('lightbox__button') ||
     evt.target.classList.contains('lightbox__overlay')
   ) {
-    closeLightBox(evt);
+    closeLightBox();
   }
   //Закрытие модалки по MORE FROM THIS AUTHOR
   if (evt.target.classList.contains('modal-btn-more')) {
@@ -56,17 +61,18 @@ refs.lightBox.addEventListener('click', evt => {
         setPagination(data.page.totalElements);
       })
       .catch(console.log);
-    closeLightBox(evt);
+    closeLightBox();
   }
 });
 
-//Закрытие модалки по Escape ________________________________________
-window.addEventListener('keydown', evt => {
+//Закрытие модалки по Escape, функция для callback_________________________________
+function escapeKeyListener(evt) {
   if (evt.code === 'Escape') {
-    closeLightBox(evt);
+    closeLightBox();
   }
-});
+}
 
-function closeLightBox(event) {
+function closeLightBox() {
   refs.lightBox.classList.remove('is-open');
+  window.removeEventListener('keydown', escapeKeyListener);
 }

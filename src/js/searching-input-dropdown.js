@@ -6,11 +6,13 @@ import debounce from 'lodash.debounce';
 import setPagination from './pagination';
 import { showLoader, hideLoader } from './preloader.js';
 import { alert, notice, info, success, error, defaultModules } from '@pnotify/core';
+import checkTheme from './theme-mode';
 
 const refs = {
   countryListRef: document.querySelector('.dropdown__list'),
   dropdownTitleRef: document.querySelector('.dropdown__title'),
   dropdownRef: document.querySelector('.dropdown'),
+  countriesDropdownRef: document.querySelector('.countries-dropdown__wrapper'),
 
   eventCardsRef: document.querySelector('.cards__list'),
   searchInputRef: document.querySelector('.form-field'),
@@ -24,11 +26,12 @@ const refs = {
 document.addEventListener('DOMContentLoaded', onStartEventsLoad);
 // window.onload = onStartEventsLoad;
 
-document.addEventListener('click', onClickDropdown);
+refs.countriesDropdownRef.addEventListener('click', onClickDropdown);
 refs.searchInputRef.addEventListener('input', debounce(onInputSearch, 500));
 
 //функция подгрузки событий при первой загрузке страницы
 function onStartEventsLoad() {
+  // refs.eventCardsRef.innerHTML = '';
   setEventsOnPage();
 
   apiService
@@ -55,10 +58,10 @@ function onClickDropdown(e) {
   ) {
     // Проверяем кликнули ли мы по стране, если да, то оставляем в форме страну, добавляем аттрибут страны и фетчим
     if (e.target.classList.contains('dropdown__item')) {
-      const attributeName = e.target.getAttribute('data-country-id');
+      const attributeName = e.target.dataset.countryId;
       const countryName = e.target.textContent;
 
-      refs.dropdownTitleRef.setAttribute('data-country-id', attributeName);
+      refs.dropdownTitleRef.dataset.countryId = attributeName;
       refs.dropdownTitleRef.textContent = countryName;
     }
 
@@ -76,8 +79,17 @@ function onClickDropdown(e) {
   }
 
   if (e.target.getAttributeNames().includes('data-country-id')) {
-    apiService.countryCode = refs.dropdownTitleRef.getAttribute('data-country-id');
+
+    if (refs.dropdownTitleRef.getAttribute('data-country-id') === 'default') {
+      apiService.countryCode = '';
+    } else {
+      apiService.countryCode = refs.dropdownTitleRef.getAttribute('data-country-id');
+    }
+
+    refs.eventCardsRef.innerHTML = '';
+
     showLoader();
+    
     setEventsOnPage();
 
     apiService
@@ -85,6 +97,7 @@ function onClickDropdown(e) {
       .then(data => {
         renderGallery(data);
         setPagination(data.page.totalElements);
+        checkTheme(JSON.parse(localStorage.getItem('Theme')));
       })
       .catch(console.log)
       .finally(hideLoader);
@@ -94,6 +107,7 @@ function onClickDropdown(e) {
 //функция обработки поля input поиск
 function onInputSearch(e) {
   apiService.keyword = e.target.value;
+  refs.eventCardsRef.innerHTML = '';
 
   if (!e.target.value.length) {
     refs.searchIconRef.style.opacity = 1;
@@ -123,6 +137,7 @@ function renderGallery(data) {
     locationRef: evt._embedded.venues[0].name,
   }));
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
+  checkTheme(JSON.parse(localStorage.getItem('Theme')));
 }
 
 //функция установки количества событий на странице

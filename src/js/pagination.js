@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 import apiService from '../services/api-services';
 import { renderGallery, setEventsOnPage } from '../js/searching-input-dropdown';
 
+
 function setPagination(totalEvents) {
   const options = {
     totalItems: totalEvents > 1000 ? 1000 : totalEvents,
@@ -20,3 +21,4 @@ function setPagination(totalEvents) {
 }
 
 export default setPagination;
+
