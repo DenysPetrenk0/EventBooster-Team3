@@ -53,12 +53,18 @@
               {{priceRanges.1.min}}-{{priceRanges.1.max}}
               {{priceRanges.1.currency}}</p>
           {{else}}
-            <p class='modal-text'>Vip is not available</p>
+            <p class='modal-text wrapper-price'>Vip is not available</p>
           {{/if}}
         </div>
-        <a href='{{urlVip}}' target='_blank'>
-          <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
-        </a>
+        {{#if vipPrice}}
+          <a href='{{urlVip}}' target='_blank'>
+            <button type='button' class='modal-btn-buy'>BUY TICKETS</button>
+          </a>
+        {{else}}
+          <a href='{{urlVip}}' target='_blank'>
+            <button type='button' class='modal-btn-buy disable' disabled>BUY TICKETS</button>
+          </a>
+        {{/if}}
       </div>
       <button type='button' class='modal-btn-more' data-author='{{authorName}}'>MORE FROM THIS
         AUTHOR</button>
