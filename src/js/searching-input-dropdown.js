@@ -4,6 +4,8 @@ import eventsListTpl from '../tpl/cards.hbs';
 import apiService from '../services/api-services';
 import debounce from 'lodash.debounce';
 import setPagination from './pagination';
+import { showLoader, hideLoader } from './preloader.js';
+import { alert, notice, info, success, error, defaultModules } from '@pnotify/core';
 
 const refs = {
   countryListRef: document.querySelector('.dropdown__list'),
@@ -75,7 +77,7 @@ function onClickDropdown(e) {
 
   if (e.target.getAttributeNames().includes('data-country-id')) {
     apiService.countryCode = refs.dropdownTitleRef.getAttribute('data-country-id');
-
+    showLoader();
     setEventsOnPage();
 
     apiService
@@ -84,7 +86,8 @@ function onClickDropdown(e) {
         renderGallery(data);
         setPagination(data.page.totalElements);
       })
-      .catch(console.log);
+      .catch(console.log)
+      .finally(hideLoader);
   }
 }
 
@@ -99,7 +102,7 @@ function onInputSearch(e) {
     refs.clearSearchIconRef.style.opacity = 1;
     refs.searchIconRef.style.opacity = 0;
   }
-
+  showLoader();
   setEventsOnPage();
 
   apiService
@@ -108,7 +111,8 @@ function onInputSearch(e) {
       renderGallery(data);
       setPagination(data.page.totalElements);
     })
-    .catch(console.log);
+    .catch(console.log)
+    .finally(hideLoader);
 }
 
 //функция генерации галереи событий
