@@ -7,7 +7,7 @@ function setPagination(totalEvents) {
   const options = {
     totalItems: totalEvents > 1000 ? 1000 : totalEvents,
     itemsPerPage: apiService.size,
-    visiblePages: 5,
+    visiblePages: window.outerWidth < 768 ? 3 : 5,
     page: 1,
     centerAlign: true,
   };
