@@ -29,9 +29,23 @@ refs.searchInputRef.addEventListener('input', debounce(onInputSearch, 500));
 
 //функция подгрузки событий при первой загрузке страницы
 function onStartEventsLoad() {
+  // refs.eventCardsRef.innerHTML = '';
   setEventsOnPage();
 
-  apiService.fetchEvent().then(renderGallery).catch(console.log);
+  apiService
+    .fetchEvent()
+    .then(data => {
+      renderGallery(data);
+      setPagination(data.page.totalElements);
+    })
+    .catch(console.log);
+}
+
+document.body.addEventListener('click', closeCntrListByNotargetClick);
+function closeCntrListByNotargetClick(e) {
+  if (!e.target.closest('.countries-dropdown__wrapper')) {
+    refs.countryListRef.classList.add('visually-hidden');
+  }
 }
 
 //функция обработки выбора списка стран поиск
@@ -66,11 +80,15 @@ function onClickDropdown(e) {
   if (e.target.getAttributeNames().includes('data-country-id')) {
     apiService.countryCode = refs.dropdownTitleRef.getAttribute('data-country-id');
 
+    refs.eventCardsRef.innerHTML = '';
     setEventsOnPage();
 
     apiService
       .fetchEvent()
-      .then(data => renderGallery(data))
+      .then(data => {
+        renderGallery(data);
+        setPagination(data.page.totalElements);
+      })
       .catch(console.log);
   }
 }
@@ -78,6 +96,7 @@ function onClickDropdown(e) {
 //функция обработки поля input поиск
 function onInputSearch(e) {
   apiService.keyword = e.target.value;
+  refs.eventCardsRef.innerHTML = '';
 
   if (!e.target.value.length) {
     refs.searchIconRef.style.opacity = 1;
@@ -93,6 +112,7 @@ function onInputSearch(e) {
     .fetchEvent()
     .then(data => {
       renderGallery(data);
+      setPagination(data.page.totalElements);
     })
     .catch(console.log);
 }
@@ -104,8 +124,6 @@ function renderGallery(data) {
     imgUrl: evt.images.find(img => img.width === 1024 && img.height === 683),
     locationRef: evt._embedded.venues[0].name,
   }));
-
-  setPagination(data.page.totalElements);
   refs.eventCardsRef.innerHTML = eventsListTpl(events);
   checkTheme(JSON.parse(localStorage.getItem('Theme')));
 }
@@ -120,4 +138,5 @@ function setEventsOnPage() {
     apiService.size = 20;
   }
 }
-export default setEventsOnPage;
+
+export { renderGallery, setEventsOnPage };

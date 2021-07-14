@@ -17,7 +17,7 @@ class ApiService {
     return fetch(url)
       .then(response => response.json())
       .then(data => {
-        // console.log(data);
+        console.log(data);
         if (data.page.totalElements === 0) {
           return Promise.reject('Opps! Something went wrong');
         } else {
