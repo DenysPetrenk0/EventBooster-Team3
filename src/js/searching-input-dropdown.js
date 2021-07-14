@@ -50,7 +50,6 @@ function closeCntrListByNotargetClick(e) {
 
 //функция обработки выбора списка стран поиск
 function onClickDropdown(e) {
-  console.log(e.target);
   if (
     e.target.getAttributeNames().includes('data-dropdown') ||
     e.target.getAttributeNames().includes('data-country-id')
@@ -78,7 +77,11 @@ function onClickDropdown(e) {
   }
 
   if (e.target.getAttributeNames().includes('data-country-id')) {
-    apiService.countryCode = refs.dropdownTitleRef.getAttribute('data-country-id');
+    if (refs.dropdownTitleRef.getAttribute('data-country-id') === 'default') {
+      apiService.countryCode = '';
+    } else {
+      apiService.countryCode = refs.dropdownTitleRef.getAttribute('data-country-id');
+    }
 
     refs.eventCardsRef.innerHTML = '';
     setEventsOnPage();
@@ -88,6 +91,7 @@ function onClickDropdown(e) {
       .then(data => {
         renderGallery(data);
         setPagination(data.page.totalElements);
+        checkTheme(JSON.parse(localStorage.getItem('Theme')));
       })
       .catch(console.log);
   }

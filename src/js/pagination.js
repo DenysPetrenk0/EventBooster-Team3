@@ -1,6 +1,5 @@
 import Pagination from 'tui-pagination';
 import apiService from '../services/api-services';
-import checkTheme from './theme-mode';
 import { renderGallery, setEventsOnPage } from '../js/searching-input-dropdown';
 
 
