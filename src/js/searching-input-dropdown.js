@@ -17,7 +17,7 @@ refs.searchInputRef.addEventListener('input', debounce(onInputSearch, 500));
 
 //функция подгрузки событий при первой загрузке страницы
 function onStartEventsLoad() {
-  apiService.page = 0;
+  apiService.resetPage();
   setEventsOnPage();
 
   apiService.fetchEvent().then(data => {
@@ -69,7 +69,7 @@ function onClickDropdown(e) {
     }
 
     showLoader();
-    apiService.page = 0;
+    apiService.resetPage();
     setEventsOnPage();
 
     apiService
@@ -97,7 +97,7 @@ function onInputSearch(e) {
     refs.searchIconRef.style.opacity = 0;
   }
   showLoader();
-  apiService.page = 0;
+  apiService.resetPage();
   setEventsOnPage();
 
   apiService
