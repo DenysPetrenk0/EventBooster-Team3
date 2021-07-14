@@ -9,18 +9,6 @@ import { alert, notice, info, success, error, defaultModules } from '@pnotify/co
 import checkTheme from './theme-mode';
 import refs from './refs';
 
-// const refs = {
-// countriesDropdownRef: document.querySelector('.countries-dropdown__wrapper'),
-// dropdownRef: document.querySelector('.dropdown'),
-// dropdownTitleRef: document.querySelector('.dropdown__title'),
-// dropdownIconRef: document.querySelector('.dropdown__svg'),
-// countryListRef: document.querySelector('.dropdown__list'),
-// searchInputRef: document.querySelector('.form-field'),
-// searchIconRef: document.querySelector('.search__icon'),
-// clearSearchIconRef: document.querySelector('.clear-search__icon'),
-// eventCardsRef: document.querySelector('.cards__list'),
-// };
-
 document.addEventListener('DOMContentLoaded', onStartEventsLoad);
 // window.onload = onStartEventsLoad;
 
@@ -29,7 +17,7 @@ refs.searchInputRef.addEventListener('input', debounce(onInputSearch, 500));
 
 //функция подгрузки событий при первой загрузке страницы
 function onStartEventsLoad() {
-  // refs.eventCardsRef.innerHTML = '';
+  apiService.page = 0;
   setEventsOnPage();
 
   apiService.fetchEvent().then(data => {
@@ -80,10 +68,8 @@ function onClickDropdown(e) {
       apiService.countryCode = refs.dropdownTitleRef.getAttribute('data-country-id');
     }
 
-    refs.eventCardsRef.innerHTML = '';
-
     showLoader();
-
+    apiService.page = 0;
     setEventsOnPage();
 
     apiService
@@ -111,6 +97,7 @@ function onInputSearch(e) {
     refs.searchIconRef.style.opacity = 0;
   }
   showLoader();
+  apiService.page = 0;
   setEventsOnPage();
 
   apiService
