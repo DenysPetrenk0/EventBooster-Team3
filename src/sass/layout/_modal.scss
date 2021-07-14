@@ -304,8 +304,8 @@
   }
   @media screen and (min-width: 1200px) {
     margin: 0 60px 0 50px;
-    width: 300px;
-    height: 305px;
+    width: 350px;
+    height: 455px;
   }
 }
 
@@ -324,11 +324,13 @@
   border-radius: 0;
   margin-bottom: 0;
   @media screen and (min-width: 768px) {
-    width: 240px;
-    height: 300px;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
   }
   @media screen and (min-width: 1200px) {
-    width: 300px;
-    height: 455px;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
   }
 }
