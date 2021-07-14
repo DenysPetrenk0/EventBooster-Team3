@@ -34,13 +34,10 @@ function onStartEventsLoad() {
   // refs.eventCardsRef.innerHTML = '';
   setEventsOnPage();
 
-  apiService
-    .fetchEvent()
-    .then(data => {
-      renderGallery(data);
-      setPagination(data.page.totalElements);
-    })
-    .catch(console.log);
+  apiService.fetchEvent().then(data => {
+    renderGallery(data);
+    setPagination(data.page.totalElements);
+  });
 }
 
 document.body.addEventListener('click', closeCntrListByNotargetClick);
@@ -79,7 +76,6 @@ function onClickDropdown(e) {
   }
 
   if (e.target.getAttributeNames().includes('data-country-id')) {
-
     if (refs.dropdownTitleRef.getAttribute('data-country-id') === 'default') {
       apiService.countryCode = '';
     } else {
@@ -89,7 +85,7 @@ function onClickDropdown(e) {
     refs.eventCardsRef.innerHTML = '';
 
     showLoader();
-    
+
     setEventsOnPage();
 
     apiService
