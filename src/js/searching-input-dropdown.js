@@ -79,7 +79,7 @@ function onClickDropdown(e) {
         setPagination(data.page.totalElements);
         checkTheme(JSON.parse(localStorage.getItem('Theme')));
       })
-      .catch(console.log)
+      .catch(() => (refs.eventCardsRef.innerHTML = ''))
       .finally(hideLoader);
   }
 }
