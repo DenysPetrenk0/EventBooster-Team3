@@ -7,21 +7,19 @@ import setPagination from './pagination';
 import { showLoader, hideLoader } from './preloader.js';
 import { alert, notice, info, success, error, defaultModules } from '@pnotify/core';
 import checkTheme from './theme-mode';
+import refs from './refs';
 
-const refs = {
-  countryListRef: document.querySelector('.dropdown__list'),
-  dropdownTitleRef: document.querySelector('.dropdown__title'),
-  dropdownRef: document.querySelector('.dropdown'),
-  countriesDropdownRef: document.querySelector('.countries-dropdown__wrapper'),
-
-  eventCardsRef: document.querySelector('.cards__list'),
-  searchInputRef: document.querySelector('.form-field'),
-  dropdownIconRef: document.querySelector('.dropdown__svg'),
-  eventCardsRef: document.querySelector('.cards__list'),
-  searchInputRef: document.querySelector('.form-field'),
-  searchIconRef: document.querySelector('.search__icon'),
-  clearSearchIconRef: document.querySelector('.clear-search__icon'),
-};
+// const refs = {
+// countriesDropdownRef: document.querySelector('.countries-dropdown__wrapper'),
+// dropdownRef: document.querySelector('.dropdown'),
+// dropdownTitleRef: document.querySelector('.dropdown__title'),
+// dropdownIconRef: document.querySelector('.dropdown__svg'),
+// countryListRef: document.querySelector('.dropdown__list'),
+// searchInputRef: document.querySelector('.form-field'),
+// searchIconRef: document.querySelector('.search__icon'),
+// clearSearchIconRef: document.querySelector('.clear-search__icon'),
+// eventCardsRef: document.querySelector('.cards__list'),
+// };
 
 document.addEventListener('DOMContentLoaded', onStartEventsLoad);
 // window.onload = onStartEventsLoad;
@@ -79,7 +77,6 @@ function onClickDropdown(e) {
   }
 
   if (e.target.getAttributeNames().includes('data-country-id')) {
-
     if (refs.dropdownTitleRef.getAttribute('data-country-id') === 'default') {
       apiService.countryCode = '';
     } else {
@@ -89,7 +86,7 @@ function onClickDropdown(e) {
     refs.eventCardsRef.innerHTML = '';
 
     showLoader();
-    
+
     setEventsOnPage();
 
     apiService

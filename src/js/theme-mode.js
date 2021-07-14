@@ -1,12 +1,14 @@
+import refs from './refs';
+// const themeSwitchRef = document.querySelector('#theme-switch-toggle');
+
 const defaultUserThemeValue = JSON.parse(localStorage.getItem('Theme'));
-const themeSwitchRef = document.querySelector('#theme-switch-toggle');
 
 const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };
 
-themeSwitchRef.addEventListener('change', onSwitchTheme);
+refs.themeSwitchRef.addEventListener('change', onSwitchTheme);
 
 setTimeout(() => {
   defineUserThemeSettings(defaultUserThemeValue);
@@ -35,7 +37,7 @@ function onSwitchingTheme(presentTheme, nextTheme) {
   switchClassName(presentTheme, nextTheme);
 
   localStorage.setItem('Theme', JSON.stringify(nextTheme));
-  themeSwitchRef.checked = presentTheme === Theme.DARK;
+  refs.themeSwitchRef.checked = presentTheme === Theme.DARK;
 }
 
 function switchClassName(present, next) {

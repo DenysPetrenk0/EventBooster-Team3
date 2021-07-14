@@ -2,21 +2,23 @@ import modaltpl from '../tpl/modal.hbs';
 import apiService from '../services/api-services.js';
 import { renderGallery, setEventsOnPage } from './searching-input-dropdown';
 import setPagination from './pagination';
-import ticketSvg from "../images/modal/ticket.svg"
+import ticketSvg from '../images/modal/ticket.svg';
+import refs from './refs';
 
 import '../js/searching-input-dropdown.js';
 
-const refs = {
-  jsGallery: document.querySelector('.cards__list'),
-  lightBox: document.querySelector('.lightbox'),
+// const refs = {
+//   eventCardsRef: document.querySelector('.cards__list'),
+//   lightBox: document.querySelector('.lightbox'),
+//   searchInputRef: document.querySelector('.form-field'),
 
-  jsLightbox: document.querySelector('.js-lightbox'),
-  modalCloseBtn: document.querySelector('.lightbox__button'),
-  lighBoxOverlay: document.querySelector('.lightbox__overlay'),
-};
+//   jsLightbox: document.querySelector('.js-lightbox'),
+//   modalCloseBtn: document.querySelector('.lightbox__button'),
+//   lighBoxOverlay: document.querySelector('.lightbox__overlay'),
+// };
 
 //Слушатель событий(открытие модалки)_____________________
-refs.jsGallery.addEventListener('click', event => {
+refs.eventCardsRef.addEventListener('click', event => {
   if (event.target.classList.contains('cards__list')) return;
   const targetId = event.target.closest('.card').dataset.index;
   apiService
@@ -52,8 +54,14 @@ refs.lightBox.addEventListener('click', evt => {
   }
   //Закрытие модалки по MORE FROM THIS AUTHOR
   if (evt.target.classList.contains('modal-btn-more')) {
+    refs.searchInputRef.value = evt.target.dataset.author;
+    refs.clearSearchIconRef.style.opacity = 1;
+    refs.searchIconRef.style.opacity = 0;
+
     apiService.keyword = evt.target.dataset.author;
+
     setEventsOnPage();
+
     apiService
       .fetchEvent()
       .then(data => {
