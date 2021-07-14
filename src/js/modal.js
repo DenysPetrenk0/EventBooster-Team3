@@ -2,6 +2,7 @@ import modaltpl from '../tpl/modal.hbs';
 import apiService from '../services/api-services.js';
 import { renderGallery, setEventsOnPage } from './searching-input-dropdown';
 import setPagination from './pagination';
+import ticketSvg from "../images/modal/ticket.svg"
 
 import '../js/searching-input-dropdown.js';
 
@@ -33,6 +34,10 @@ function renderModal(data) {
     authorName: data.name.split(' ').slice(0, 2).join(' '),
     imgBigUrl: data.images.find(img => img.width === 1024 && img.height === 683),
     imgSmallUrl: data.images.find(img => img.width === 305 && img.height === 225),
+    vipPrice: data.priceRanges[1] ? 1 : 0,
+    urlPrice: data.url,
+    urlVip: data.url,
+    ticketSvg,
   };
   refs.lightBox.innerHTML = modaltpl(event);
 }
