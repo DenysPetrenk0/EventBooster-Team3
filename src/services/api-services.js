@@ -14,7 +14,7 @@ class ApiService {
 
   //запрос для поиска по полю input и dropdown на главной странице
   fetchEvent() {
-    const url = `${this.BASE_URL}.json?keyword=${this._keyword}&countryCode=${this._countryCode}&size=${this._size}&page=${this._page}&sort=random&apikey=${this.API_KEY}`;
+    const url = `${this.BASE_URL}.json?keyword=${this._keyword}&countryCode=${this._countryCode}&size=${this._size}&page=${this._page}&apikey=${this.API_KEY}`;
     // console.log(url);
 
     return fetch(url)
