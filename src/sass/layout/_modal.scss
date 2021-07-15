@@ -39,7 +39,7 @@
 
 .lightbox__content {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   z-index: 99;
   transform: translate(-50%, -50%);
@@ -56,6 +56,7 @@
   @media screen and (min-width: 1200px) {
     width: 850px;
     border-radius: 255px 0px;
+    top: 50%;
   }
 }
 
